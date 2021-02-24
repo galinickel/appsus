@@ -5,7 +5,7 @@ import emailCompose from '../cmps/email-compose.cmp.js'
 export default {
     name: 'email-app',
     template: `<div class="app-page">
-        <h1> hi i'm EMAIL APP </h1>
+        <h2>Email</h2>
         <button @click="composing = !composing">New Email</button>
         <template v-if="composing"><email-compose :emails="emails"/></template>
         <router-view :emails="emails"/>

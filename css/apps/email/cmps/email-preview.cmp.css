@@ -1,0 +1,22 @@
+td {
+    padding: 20px;
+}
+
+/* specific items */
+.email-from {
+    font-weight: bold;
+    width: 150px;
+}
+
+.email-subject {
+    width: 395px;
+}
+
+.email-body {
+    width: 435px;
+    font-style: italic;
+}
+
+.email-date {
+    width: 125px;
+}

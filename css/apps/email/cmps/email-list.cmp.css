@@ -12,18 +12,3 @@
 tr {
     border: 1px solid black;
 }
-
-td {
-    padding: 20px;
-
-}
-
-/* specific items */
-.email-from {
-    font-weight: bold;
-    width: 150px;
-}
-
-.email-subject {
-    width: 450px;
-}
