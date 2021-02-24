@@ -21,21 +21,18 @@ export default {
         }
     },
     methods: {
-        renderNote(noteType, note) {
-            console.log(noteType, note);
+        renderNote() {
+            this.loadNotes();
+        },
+        loadNotes() { 
+            keepService.query('keepNotes')
+            .then (notes=> {this.notes = notes })
         }
     },
     computed: {
-        addNewMsg() {
-            if (this.isAddNew) return 'Close me'
-            else return 'Add new note!'
-        }
     },
     created() {
-        return keepService.query('keepNotes')
-        .then (notes=> {this.notes = notes
-            console.log(this.notes);
-        })
+        this.loadNotes();
     },
     components: {
         keepAdd,
