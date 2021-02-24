@@ -5,12 +5,12 @@ import { router } from './routes.js'
 
 const options = {
     el: '#app',
-    router: router,
+    router,
     template: `
         <section>
-            <siteHeader />
+            <site-header />
             <router-view />
-            <siteFooter></siteFooter>
+            <site-footer/>
         </section>
     `,
     components: {

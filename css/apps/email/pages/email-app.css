@@ -1,4 +1,4 @@
-@import url('./apps/email/pages/email-details.css');
-@import url('./apps/email/cmps/email-compose.cmp.css');
-@import url('./apps/email/cmps/email-list.cmp.css');
-@import url('./apps/email/cmps/email-preview.cmp.css');
+@import './apps/email/pages/email-details.css';
+@import './apps/email/cmps/email-compose.cmp.css';
+@import './apps/email/cmps/email-list.cmp.css';
+@import './apps/email/cmps/email-preview.cmp.css';
