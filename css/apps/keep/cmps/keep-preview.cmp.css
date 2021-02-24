@@ -1,0 +1,10 @@
+.keep-preview { 
+    border: 1px solid black;
+    min-height: 15vh;
+    break-inside: avoid;
+    margin: 5% 0;
+    padding: 1rem;
+}
+.keep-preview img{ 
+    width: 25vh;
+}
