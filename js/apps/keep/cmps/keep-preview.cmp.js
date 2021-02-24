@@ -1,5 +1,7 @@
 export default {
-    template: `<h1> hi i'm keep list</h1>`
+    template: `<div class="keep-preview">
+        <h1> hi i'm keep preview</h1> 
+        </div>`
 }
 
 

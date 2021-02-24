@@ -1,5 +1,7 @@
 export default {
-    template: `<h1> hi i'm email preview</h1>`
+    template: `<div class="email-preview">
+        <h1> hi i'm email-preview</h1> 
+        </div>`
 }
 
 /// this comp will be inside email-list
