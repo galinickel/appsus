@@ -1,7 +1,8 @@
 import { storageService } from '../../../site-services/async-storage-service.js'
-let KEEP_KEY = 'keepNotes'
+const KEEP_KEY = 'keepNotes'
+const notesData = []
 export const keepService = {
-    // query,
+    query,
     // getNoteById,
     // searchNote,
     addNote,
@@ -21,3 +22,12 @@ function addNote(noteType, note) {
     storageService.post(KEEP_KEY, newNote)
 }
 
+function query() {
+    return storageService.query(KEEP_KEY)
+        .then(notes => {
+            if (!notes.length) {
+                notes = notesData;
+                storageService.postMany(KEEP_KEY, notes);
+            }
+            return notes })
+}

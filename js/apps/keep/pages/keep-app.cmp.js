@@ -11,7 +11,7 @@ export default {
         <h3>Your notes. Brought together.</h3>
         <!-- <button @click="isAddNew = !isAddNew" class="keep-add-btn">{{addNewMsg}}</button>  -->
         <keep-add v-if="isAddNew" @noteSaved="renderNote"/>
-        <keep-list :notes/>
+        <keep-list :notes="notes"/>
         <keep-preview/>
         </div> `,
     data() {
@@ -21,8 +21,8 @@ export default {
         }
     },
     methods: {
-        renderNote(noteType,note) {
-            console.log(noteType,note);
+        renderNote(noteType, note) {
+            console.log(noteType, note);
         }
     },
     computed: {
@@ -30,6 +30,12 @@ export default {
             if (this.isAddNew) return 'Close me'
             else return 'Add new note!'
         }
+    },
+    created() {
+        return keepService.query('keepNotes')
+        .then (notes=> {this.notes = notes
+            console.log(this.notes);
+        })
     },
     components: {
         keepAdd,
