@@ -13,8 +13,10 @@
 @import url('./apps/keep/pages/keep-app.css');
 
 
-
+*{
+    box-sizing: border-box;
+}
 
 body {
-    background-color: rgb(209, 198, 181);
+    margin: 0;
 }

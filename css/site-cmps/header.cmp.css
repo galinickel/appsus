@@ -1,0 +1,10 @@
+.site-header { 
+    background-color: rgb(209, 198, 181);
+    justify-content: space-between;
+    height: 8vh;
+}
+.header-navbar { 
+    justify-content: space-evenly;
+    width: 45%;
+    list-style-type: none;
+}

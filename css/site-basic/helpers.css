@@ -1,0 +1,11 @@
+.flex{
+    display: flex;
+}
+
+.main-layout { 
+    max-width: 1000px;
+}
+
+.app-page { 
+    min-height: 80vh;
+}
