@@ -1,8 +1,8 @@
 export default {
     template: `
-    <header class="site-footer">
+    <footer class="site-footer">
     <p> &copy; Coffeerights 2021</p>
-    </header>
+    </footer>
     `,
 
 }

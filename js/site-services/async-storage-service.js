@@ -1,5 +1,4 @@
 
-
 export const storageService = {
     query,
     get,
@@ -9,7 +8,6 @@ export const storageService = {
     postMany,
     saveToStorage,
     loadFromStorage,
-    makeId
 }
 
 function query(entityType) {
@@ -23,7 +21,6 @@ function get(entityType, entityId) {
 }
 
 function post(entityType, newEntity) {
-    // newEntity.id = _makeId()
     return query(entityType)
         .then(entities => {
             entities.push(newEntity);
@@ -73,13 +70,4 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     let data = localStorage.getItem(key);
     return (data) ? JSON.parse(data) : undefined;
-}
-
-function makeId(length = 5) {
-    var txt = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return txt;
 }

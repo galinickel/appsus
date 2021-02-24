@@ -1,3 +1,7 @@
+export const utilService = {
+    makeId
+}
+
 function debounce(func, wait) {
     let timeout;
 

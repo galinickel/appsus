@@ -3,7 +3,7 @@ import aboutPage from './site-pages/about-page.cmp.js'
 import keepApp from './apps/keep/pages/keep-app.cmp.js'
 import emailApp from './apps/email/pages/email-app.cmp.js'
 import emailList from './apps/email/cmps/email-list.cmp.js'
-import emailDetails from './apps/email/pages/email-details.cmp.js'
+// import emailDetails from './apps/email/pages/email-details.cmp.js'
 
 const routes = [
     {
@@ -23,15 +23,20 @@ const routes = [
         component: emailApp,
         children: [
             {
-                path: ':folder/',
+                path: '/',
                 component: emailList
-            }
+            },
+            {
+                path: 'listylist',
+                // path: ':folder/',
+                component: emailList
+            },
+            // {
+            //     path: '/email/:emailId',
+            //     component: emailDetails
+            // }
         ]
     },
-    {
-        path: '/email/:emailId',
-        component: emailDetails
-    }
 
     // BOOKS
 
