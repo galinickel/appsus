@@ -1,3 +1,7 @@
+import homePage from './site-pages/home-page.cmp.js'
+import aboutPage from './site-pages/about-page.cmp.js'
+import keepApp from './apps/keep/pages/keep-app.cmp.js'
+import emailApp from './apps/email/pages/email-app.cmp.js'
 
 
 const routes = [
@@ -39,4 +43,4 @@ const routes = [
     // }
 ]
 
-const router = new VueRouter({ routes })
+export const router = new VueRouter({ routes })

@@ -20,7 +20,6 @@ const routes = [
     }
 ]
 
-const router = new VueRouter({ routes })
 
 const options = {
     el: '#app',
