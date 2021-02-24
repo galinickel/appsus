@@ -1,12 +1,23 @@
+import addNoteTxt from '../cmps/keep-new-note/add-note-txt.cmp.js'
+
+
 export default {
     template: `<div class="keep-add">
         <h1> hi i'm keep add</h1> 
-        <textarea v-model="userNote"  rows="4" cols="25" class="add-new-note"></textarea>
+        <ul class="">
+            <li @click="userNoteType = 'txt'">txt</li>
+            <li @click="userNoteType = 'img'">img</li>
+            <li @click="userNoteType = 'video'">video</li>
+            <li @click="userNoteType = 'list'">list</li>
+        </ul>
+        <add-note-txt v-if="userNoteType === 'txt'"/>
+        <p>selected note type:{{userNoteType}}</p>
         <button  class="keep-save-note" @click="logNote">Save Note</button>
         </div>`,
         data() { 
             return {
-                userNote: null
+                userNote: null,
+                userNoteType: null
             }
         },
         methods: {
@@ -16,6 +27,9 @@ export default {
         },
         computed: {
         },
+        components: { 
+            addNoteTxt
+        }
 
 }
 

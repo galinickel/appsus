@@ -6,15 +6,13 @@ import keepPreview from '../cmps/keep-preview.cmp.js'
 export default {
     template: `<div class="app-page">
         <h1> hi i'm KEEP APP </h1>
-        <!-- FIXME: onclick events works but returns vue warn... -->
         <button @click="isAddNew = !isAddNew" class="keep-add-btn">{{addNewMsg}}</button> 
         <keep-add v-if="isAddNew"/>
         <keep-list/>
         <keep-preview/>
-        
         </div> `,
         data(){
-            return {isAddNew: false
+            return {isAddNew: true
         }}
         ,
         computed: {
@@ -22,9 +20,7 @@ export default {
                 if (this.isAddNew) return 'Close me'
                 else return 'Add new note!'
             }
-        },
-  
-        
+        },        
     components: {keepAdd,
     keepList,
     keepPreview}

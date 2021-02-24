@@ -43,4 +43,4 @@ const routes = [
     // }
 ]
 
-export const router = new VueRouter({ routes, mode: 'history' })
+export const router = new VueRouter({ routes }) //FIXME: maybe add 'history' mode before final upload
