@@ -1,12 +1,12 @@
 import { emailService } from '../services/email-service.js';
 
 export default {
-    template: `<div class="email-details-container">
-       {{email.subject}}
-       <br>
-       {{email.body}}
-       <br>
-       <router-link :to="'./inbox'">back</router-link>
+    template: `<div v-if="email" class="email-details-container">
+        {{email.subject}}
+        <br>
+        {{email.body}}
+        <br>
+        <router-link :to="'./inbox'">back</router-link>
     </div>`,
     data() {
         return {

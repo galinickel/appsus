@@ -2,13 +2,14 @@ import { storageService } from '../../../site-services/async-storage-service.js'
 
 export const emailService = {
     query,
-    getById
+    getById,
+    save
 }
 
 const EMAILS_KEY = 'emails'
 
 
-// { folder: '', subject: '', from: '', to: '', body: '', isRead: false, sentAt: , id: randomID+sentAt}
+// { folder: '', subject: '', from: '', to: '', body: '', isRead: false, sentAt: , id: }
 /// sent emails will always be read- true unless manually changed
 /// sent emails will always be sent from 'me'
 let emailDB = [
@@ -60,6 +61,14 @@ function query() {
             return emails;
         }
         );
+}
+
+function save(email) {
+    // for editing email drafts
+    // if (email.id) {
+    //     return storageService.put(EMAILS_KEY, email)
+
+    return storageService.post(EMAILS_KEY, email)
 }
 
 function getById(id) {

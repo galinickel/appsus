@@ -6,8 +6,8 @@ export default {
     name: 'email-app',
     template: `<div class="app-page">
         <h2>Email</h2>
-        <button @click="composing = !composing">New Email</button>
-        <template v-if="composing"><email-compose :emails="emails"/></template>
+        <button @click="composing = !composing">{{newEmailBtnTxt}}</button>
+        <template v-if="composing"><email-compose @emailSaved="loadEmails" :emails="emails"/></template>
         <router-view :emails="emails"/>
         </div> `,
     data() {
@@ -21,8 +21,14 @@ export default {
         loadEmails() {
             emailService.query().then(emails => {
                 this.emails = emails
+                this.composing = false
             })
         },
+    },
+    computed: {
+        newEmailBtnTxt() {
+            return this.composing ? 'Cancel' : 'New Email'
+        }
     },
     created() {
         this.loadEmails();
