@@ -2,7 +2,8 @@ import homePage from './site-pages/home-page.cmp.js'
 import aboutPage from './site-pages/about-page.cmp.js'
 import keepApp from './apps/keep/pages/keep-app.cmp.js'
 import emailApp from './apps/email/pages/email-app.cmp.js'
-
+import emailList from './apps/email/cmps/email-list.cmp.js'
+import emailDetails from './apps/email/pages/email-details.cmp.js'
 
 const routes = [
     {
@@ -19,13 +20,18 @@ const routes = [
     },
     {
         path: '/email',
-        component: emailApp
+        component: emailApp,
+        children: [
+            {
+                path: ':folder/',
+                component: emailList
+            }
+        ]
+    },
+    {
+        path: '/email/:emailId',
+        component: emailDetails
     }
-    // , //// nested??
-    // {
-    //     path: '/email/:emailId',
-    //     component: emailDetails
-    // }
 
     // BOOKS
 
@@ -34,13 +40,9 @@ const routes = [
     //     component: bookApp
     // },
     // {
-    //     path: '/about',
-    //     component: aboutPage
-    // },
-    // {
     //     path: '/book/:bookId',
     //     component: bookDetails
     // }
 ]
 
-export const router = new VueRouter({ routes }) //FIXME: maybe add 'history' mode before final upload
+export const router = new VueRouter({ routes })
