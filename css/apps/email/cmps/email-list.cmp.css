@@ -1,0 +1,29 @@
+/* EMAILS TABLE */
+
+
+/* general table layour */
+.email-table {
+    background-color: rgba(219, 213, 204, 0.767);
+    border-collapse: collapse;
+    width: 1100px;
+    margin: auto;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+td {
+    padding: 20px;
+
+}
+
+/* specific items */
+.email-from {
+    font-weight: bold;
+    width: 150px;
+}
+
+.email-subject {
+    width: 450px;
+}
