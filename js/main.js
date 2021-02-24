@@ -1,38 +1,21 @@
-// import header, footer, apps
+import siteHeader from './site-cmps/header.cmp.js'
+import siteFooter from './site-cmps/footer.cmp.js'
+
 import { router } from './routes.js'
-
-const routes = [
-    {
-        path: '/',
-        component: homePage
-    },
-    {
-        path: '/book',
-        component: bookApp
-    },
-    {
-        path: '/about',
-        component: aboutPage
-    },
-    {
-        path: '/book/:bookId',
-        component: bookDetails
-    }
-]
-
 
 const options = {
     el: '#app',
     router: router,
     template: `
         <section>
-            <app-header />
+            <siteHeader />
             <router-view />
-            <footer><p> &copy; Coffeerights 2021</p></footer>
+            <siteFooter></siteFooter>
         </section>
     `,
     components: {
-        appHeader
+        siteHeader,
+        siteFooter
     }
 }
 

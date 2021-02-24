@@ -1,0 +1,20 @@
+@import url('./site-basic/base.css');
+@import url('./site-basic/fonts.css');
+@import url('./site-basic/helpers.css');
+
+@import url('./site-pages/home-page.css');
+@import url('./site-pages/about-page.css');
+
+@import url('./site-cmps/footer.cmp.css');
+@import url('./site-cmps/header.cmp.css');
+@import url('./site-cmps/user-msg.cmp.css');
+
+@import url('./apps/email/pages/email-app.css');
+@import url('./apps/keep/pages/keep-app.css');
+
+
+
+
+body {
+    background-color: rgb(209, 198, 181);
+}
