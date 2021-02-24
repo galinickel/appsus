@@ -21,6 +21,7 @@ function get(entityType, entityId) {
 }
 
 function post(entityType, newEntity) {
+    newEntity.id = makeId()
     return query(entityType)
         .then(entities => {
             entities.push(newEntity);
@@ -70,4 +71,13 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     let data = localStorage.getItem(key);
     return (data) ? JSON.parse(data) : undefined;
+}
+
+function makeId(length = 7) {
+    var text = '';
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
 }

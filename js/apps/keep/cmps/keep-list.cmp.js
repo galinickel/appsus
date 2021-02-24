@@ -1,7 +1,18 @@
+
 export default {
+    props: ['notes'],
     template: `<div class="keep-list">
-        <h1> hi i'm keep list</h1> 
-        </div>`
+        <h1> Ready to see your notes?</h1> 
+        </div>`,
+    data() {
+        return {}
+    },
+    methods: {
+
+    },
+    created() {
+
+    }
 }
 
 

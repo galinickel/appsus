@@ -1,17 +1,19 @@
-// //
-export default {
-    template: `<div class="add-note-txt">
-        <h1> hi i'm add txt</h1> 
-        <textarea v-model="userNote"  rows="4" cols="25" class="add-new-note"></textarea>
 
+export default {
+    template: `<div class="add-note add-note-txt">
+        <form @submit.prevent="noteSaved">
+        <input v-model="userNote"  type="text" class="add-new-note"  placeholder="Enter your note here..." required></input>
+        </form>
         </div>`,
         data() { 
             return {
                 userNote: null,
-                userNoteType: null
+                userNoteType: 'txt'
             }
         },
-        methods: {
+        methods: {noteSaved() { 
+        this.$emit('noteSaved', this.userNoteType, this.userNote)
+        }
         },
         computed: {
         },

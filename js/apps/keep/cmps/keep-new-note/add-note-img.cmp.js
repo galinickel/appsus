@@ -1,18 +1,24 @@
-// //
 export default {
-    template: `<div class="keep-add">
-        <h1> hi i'm add img</h1> 
+    template: `<div class="add-note add-note-img">
+        <form @submit.prevent="noteSaved">
+            <input type="url"  v-model="userNote"  placeholder="Enter Img URL..." required
+            required pattern=".*\.jpg\*"
+            title="The URL must be an image!">
+        </form>
         </div>`,
-        data() { 
-            return {
-                userNote: null,
-                userNoteType: null
-            }
+    data() {
+        return {
+            userNote: null,
+            userNoteType: 'img'
+        }
+    },
+    methods: {
+        noteSaved() {
+            this.$emit('noteSaved', this.userNoteType, this.userNote)
         },
-        methods: {
-        },
-        computed: {
-        },
+
+    },
+    computed: {},
 
 }
 
