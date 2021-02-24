@@ -1,0 +1,28 @@
+
+.add-container {
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 50vh;
+}
+
+.keep-add ul {
+    list-style-type: none;
+    justify-content: space-between;
+    width: 30%;
+    margin-right: 5%;
+}
+.keep-add li { 
+    cursor: pointer;
+    transition: .2s all;
+}
+.keep-add li:hover { 
+    color: rosybrown;
+}
+.keep-add input {
+    margin-left: 5%;
+    border: none;
+    outline: none;
+    width: 175%;
+}

@@ -23,7 +23,7 @@ function get(entityType, entityId) {
 }
 
 function post(entityType, newEntity) {
-    // newEntity.id = _makeId()
+    newEntity.id = makeId()
     return query(entityType)
         .then(entities => {
             entities.push(newEntity);

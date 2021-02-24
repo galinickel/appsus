@@ -1,15 +1,23 @@
-// //
+
 export default {
-    template: `<div class="keep-add">
-        <h1> hi i'm add list</h1> 
+    template: `<div class="add-note add-note-list">
+        <form @submit.prevent="handleList">
+        <input v-model="userNote"  type="text" class="add-new-note"  placeholder="Please enter your list, seperated by commas." required></input>
+        </form>
         </div>`,
         data() { 
             return {
                 userNote: null,
-                userNoteType: null
+                userNoteType: 'list'
             }
         },
-        methods: {
+        methods: {noteSaved() { 
+        this.$emit('noteSaved', this.userNoteType, this.userNote)
+        },
+        handleList() { 
+            this.userNote = this.userNote.split(',')
+            this.noteSaved()
+        }
         },
         computed: {
         },

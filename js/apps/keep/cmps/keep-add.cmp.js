@@ -1,35 +1,48 @@
 import addNoteTxt from '../cmps/keep-new-note/add-note-txt.cmp.js'
+import addNoteImg from '../cmps/keep-new-note/add-note-img.cmp.js'
+import addNoteList from '../cmps/keep-new-note/add-note-list.cmp.js'
+import addNoteVideo from '../cmps/keep-new-note/add-note-vid.cmp.js'
+
+
+import {
+    keepService
+} from '../services/keep-service.js'
 
 
 export default {
     template: `<div class="keep-add">
-        <h1> hi i'm keep add</h1> 
-        <ul class="">
-            <li @click="userNoteType = 'txt'">txt</li>
-            <li @click="userNoteType = 'img'">img</li>
-            <li @click="userNoteType = 'video'">video</li>
-            <li @click="userNoteType = 'list'">list</li>
+        <div class="add-container flex">
+        <add-note-txt v-if="userNoteType === 'txt'" @noteSaved="saveNote"/>
+        <add-note-img v-if="userNoteType === 'img'" @noteSaved="saveNote"/>
+        <add-note-list v-if="userNoteType === 'list'" @noteSaved="saveNote"/>
+        <add-note-video v-if="userNoteType === 'video'" @noteSaved="saveNote"/>
+        <ul class="flex">
+            <li @click="userNoteType = 'txt'"><i class="far fa-file-alt"></i></li>
+            <li @click="userNoteType = 'img'"><i class="far fa-file-image"></i></li>
+            <li @click="userNoteType = 'video'"><i class="fab fa-youtube"></i></li>
+            <li @click="userNoteType = 'list'"><i class="fas fa-list-ul"></i></li>
         </ul>
-        <add-note-txt v-if="userNoteType === 'txt'"/>
-        <p>selected note type:{{userNoteType}}</p>
-        <button  class="keep-save-note" @click="logNote">Save Note</button>
+        </div>
         </div>`,
-        data() { 
-            return {
-                userNote: null,
-                userNoteType: null
-            }
-        },
-        methods: {
-            logNote(){
-                console.log(this.userNote);
-            }
-        },
-        computed: {
-        },
-        components: { 
-            addNoteTxt
+    data() {
+        return {
+            userNote: null,
+            userNoteType: 'txt'
         }
+    },
+    methods: {
+        saveNote(noteType, note) {
+            keepService.addNote(noteType, note)
+            this.$emit('noteSaved', noteType, note)
+        }
+    },
+    computed: {},
+    components: {
+        addNoteTxt,
+        addNoteImg,
+        addNoteList,
+        addNoteVideo
+    }
 
 }
 
