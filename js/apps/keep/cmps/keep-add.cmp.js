@@ -2,11 +2,7 @@ import addNoteTxt from '../cmps/keep-new-note/add-note-txt.cmp.js'
 import addNoteImg from '../cmps/keep-new-note/add-note-img.cmp.js'
 import addNoteList from '../cmps/keep-new-note/add-note-list.cmp.js'
 import addNoteVideo from '../cmps/keep-new-note/add-note-vid.cmp.js'
-
-
-import {
-    keepService
-} from '../services/keep-service.js'
+import {keepService} from '../services/keep-service.js'
 
 
 export default {

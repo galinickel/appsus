@@ -1,10 +1,56 @@
 .keep-preview { 
-    border: 1px solid black;
-    min-height: 15vh;
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    min-height: 20vh;
+    width: 40vh;
     break-inside: avoid;
-    margin: 5% 0;
+    margin: 3.5%;
     padding: 1rem;
+    box-shadow: 0 5px 2px 0 rgb(0 0 0 / 15%), 0 5px 1px -4px rgb(0 0 0 / 25%), 0 1px 15px 0 rgb(0 0 0 / 12%);
+    word-wrap: break-word;
+    font-size: 1.4rem;
+    transition: .2s all;
+    flex-direction: column;
 }
+.keep-preview:hover { 
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
 .keep-preview img{ 
-    width: 25vh;
+    object-fit: cover;
+    width: 350px;
+}
+.keep-preview ul { 
+    text-align: left;
+}
+.keep-preview-pin { 
+    float: right;
+    margin-bottom: 3%;
+    color:rgb(209, 198, 181);
+    transform: rotate(25deg);
+    transition: .2s all;
+}
+.keep-preview-pin:hover { 
+    transform: rotate(0);
+    color:      rgb(165, 148, 122)
+    ;
+}
+.edit-bar-container{
+margin-top: 15%;
+}
+.edit-bar { 
+    justify-content: space-between;
+    list-style-type: none;
+    font-size: 1rem;
+    width: 90%;
+    color:rgb(165, 148, 122);
+
+}
+.edit-bar li{
+    transition: .2s all;
+
+}
+.edit-bar li:hover { 
+    color: black;
 }

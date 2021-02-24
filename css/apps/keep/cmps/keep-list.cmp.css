@@ -1,6 +1,21 @@
 .keep-preview-container {
     column-count: 4;
-    column-gap: 1.5em;
+    column-gap: 1.5rem;
     list-style-type: none;
-    width: 75%;
+    width: 85%;
+    margin:3% auto;
+    transition: .2s all;
+
 }
+
+@media (max-width: 1600px) {
+    .keep-preview-container {
+        column-count: 3;
+    }
+  }
+
+  @media (max-width: 1350px) {
+    .keep-preview-container {
+        column-count: 2;
+    }
+  }
