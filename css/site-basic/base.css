@@ -21,6 +21,10 @@ button {
 a {
     text-decoration: none;
     color: rgb(61,
-61,
-61);
+            61,
+            61);
+}
+
+ul {
+    list-style: none;
 }

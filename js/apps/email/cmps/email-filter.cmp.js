@@ -6,6 +6,7 @@ export default {
             <input @input="setFilter" type="text" placeholder="search..." v-model="filterBy.byContent">
             <button @click="setStatus('read')">show read</button>
             <button @click="setStatus('unread')">show unread</button>
+            <button @click="setStatus(null)">show all</button>
         </div>
     </section>`,
     data() {
@@ -22,7 +23,7 @@ export default {
         },
         setStatus(readStatus) {
             this.filterBy.byStatus = readStatus;
-            setFilter();
+            this.setFilter();
         }
     }
 }

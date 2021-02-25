@@ -27,12 +27,11 @@ const routes = [
                 component: emailList
             },
             {
-                path: 'all',
-                // path: ':folder/',
+                path: ':folder/',
                 component: emailList
             },
             {
-                path: ':emailId',
+                path: ':folder/:emailId',
                 component: emailDetails
             }
         ]

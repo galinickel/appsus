@@ -6,7 +6,8 @@ export const emailService = {
     save,
     remove,
     update,
-    searchByContent
+    searchByContent,
+    filterByStatus
 }
 
 const EMAILS_KEY = 'emails'
@@ -48,14 +49,32 @@ function searchByContent(emails, content) {
             email.from.toLowerCase().includes(content.toLowerCase()) ||
             email.subject.toLowerCase().includes(content.toLowerCase());
     });
-
 }
 
+function filterByStatus(emails, status) {
+    if (status === 'read') {
+        return emails.filter(email => {
+            return email.isRead;
+        });
+    }
+    else if (status === 'unread') {
+        return emails.filter(email => {
+            return !email.isRead;
+        });
+    }
+}
 
 // { folder: '', subject: '', from: '', to: '', body: '', isRead: false, sentAt: , id: }
 /// sent emails will always be read- true unless manually changed
 /// sent emails will always be sent from 'me'
 let emailDB = [
+    {
+        folder: 'inbox', subject: 'Welcome to Appsus!',
+        from: 'Appsus', to: 'me',
+        body: 'Welcome to our app, hope you will enjoy it!',
+        isRead: false, sentAt: Date.now(),
+        id: '15511339305941234174'
+    },
     {
         folder: 'inbox', subject: 'How are you?',
         from: 'Gali', to: 'me',

@@ -2,6 +2,7 @@ import { emailService } from '../services/email-service.js'
 import { eventBus } from '../../../site-services/event-bus.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
+import emailFolders from '../cmps/email-folders.cmp.js'
 
 
 export default {
@@ -12,6 +13,7 @@ export default {
         <template v-if="composing">
             <email-compose @emailSaved="loadEmails" :emails="emailsToDisplay"/></template>
         <email-filter @filterSet="setFilter"/>
+        <email-folders/>
         <router-view @emailRead="markAsRead" :emails="emailsToDisplay"/>
         </div> `,
     data() {
@@ -62,13 +64,13 @@ export default {
             let filteredEmails = this.emails;
 
             if (this.filterBy.byContent) {
-                filteredEmails = emailService.searchByContent(this.emails, this.filterBy.byContent);
+                filteredEmails = emailService.searchByContent(filteredEmails, this.filterBy.byContent);
             }
 
-            if (this.filterBy.byStatus)
-
-
-                return filteredEmails;
+            if (this.filterBy.byStatus) {
+                filteredEmails = emailService.filterByStatus(filteredEmails, this.filterBy.byStatus);
+            }
+            return filteredEmails;
         }
     },
     created() {
@@ -80,6 +82,7 @@ export default {
     },
     components: {
         emailCompose,
-        emailFilter
+        emailFilter,
+        emailFolders
     }
 }
