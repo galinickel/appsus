@@ -42,15 +42,14 @@ export default {
         },
         colorChanged(userColor) {
             this.noteColor = userColor
+            eventBus.$emit('noteColorChagned', noteId)
         }
     },
     created() {
-    if(this.note.type === 'txt') this.previewType = 'txtPreview'
-    else if(this.note.type === 'img') this.previewType = 'imgPreview'
-    else if(this.note.type === 'list') this.previewType = 'listPreview'
-    else if(this.note.type === 'video') this.previewType = 'vidPreview'
-
-
+        if (this.note.type === 'txt') this.previewType = 'txtPreview'
+        else if (this.note.type === 'img') this.previewType = 'imgPreview'
+        else if (this.note.type === 'list') this.previewType = 'listPreview'
+        else if (this.note.type === 'video') this.previewType = 'vidPreview'
     },
     components: {
         previewEditBar,
