@@ -9,11 +9,11 @@ td {
 }
 
 .email-subject {
-    width: 395px;
+    width: 360px;
 }
 
 .email-body {
-    width: 435px;
+    width: 300px;
     font-style: italic;
 }
 
@@ -24,7 +24,7 @@ td {
 /* edit bar */
 
 .email-edit-bar {
-    width: 100px;
+    width: 90px;
 }
 
 .email-edit-icon {

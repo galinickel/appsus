@@ -7,15 +7,16 @@ import emailFolders from '../cmps/email-folders.cmp.js'
 
 export default {
     name: 'email-app',
-    template: `<div class="app-page">
-        <h2>Email</h2>
+    template: `<section class="app-page">
         <button @click="composing = !composing"><i :class="newEmailBtnTxt"></i></button>
         <template v-if="composing">
             <email-compose @emailSaved="loadEmails" :emails="emailsToDisplay"/></template>
         <email-filter @filterSet="setFilter"/>
-        <email-folders/>
+        <div class="main-email-container"> 
+        <email-folders :emails="emails"/>
         <router-view @emailRead="markAsRead" :emails="emailsToDisplay"/>
-        </div> `,
+    </div>
+        </section> `,
     data() {
         return {
             emails: [],

@@ -1,8 +1,4 @@
 export default {
-    template: `
-    <footer class="site-footer">
-    <p> &copy; Coffeerights 2021</p>
-    </footer>
-    `,
-
+    template: ` <footer> <div class="footer-container"> <p> &copy;
+    Coffeerights 2021</p></div></footer>`,
 }
