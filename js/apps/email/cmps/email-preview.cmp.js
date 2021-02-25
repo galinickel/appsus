@@ -2,14 +2,24 @@ import { eventBus } from '../../../site-services/event-bus.js'
 
 export default {
     props: ['email'],
-    template: `<div class="email-preview">
+    template: `<div class="email-preview" @mouseover="editBar=true" @mouseleave="editBar=false">
     <td class="email-from">{{email.from}}</td>
     <td class="email-subject">{{email.subject}}</td>
     <td class="email-body">{{bodyPreview}}</td>
     <td class="email-date">{{emailDate}}</td>
-    <td class="email-erease" @click.stop="emailEreased(email.id)">🗑️</td>
-    <td class="email-toggle-read" @click.stop="readToggled(email)">{{toggleReadBtn}}</td>
+    <td class="email-edit-bar">
+    <button class="email-edit-icon" @click.stop="emailEreased(email.id)">
+        <i v-if="editBar" class="far fa-trash-alt" ></i></button>
+    <button class="email-edit-icon" @click.stop="readToggled(email)">
+        <i v-if="editBar" :class="toggleReadIcon"></i></button>
+    </button>
+    </td>
 </div>`,
+    data() {
+        return {
+            editBar: false
+        }
+    },
     methods: {
         emailEreased(id) {
             swal({
@@ -36,8 +46,8 @@ export default {
         bodyPreview() {
             return this.email.body.substr(0, 49) + '...'
         },
-        toggleReadBtn() {
-            return this.email.isRead ? 'mark unread' : 'mark read'
+        toggleReadIcon() {
+            return this.email.isRead ? 'far fa-eye-slash' : 'far fa-eye'
         },
         emailDate() {
             let sentDate = new Date(this.email.sentAt).toString()

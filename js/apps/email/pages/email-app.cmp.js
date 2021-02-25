@@ -7,13 +7,13 @@ export default {
     name: 'email-app',
     template: `<div class="app-page">
         <h2>Email</h2>
-        <button @click="composing = !composing">{{newEmailBtnTxt}}</button>
+        <button @click="composing = !composing"><i :class="newEmailBtnTxt"></i></button>
         <template v-if="composing"><email-compose @emailSaved="loadEmails" :emails="emails"/></template>
-        <router-view @emailRead="markAsRead" :emails="emailsToShow"/>
+        <router-view @emailRead="markAsRead" :emails="emails"/>
         </div> `,
     data() {
         return {
-            emailsToShow: [],
+            emails: [],
             filterBy: null,
             composing: false
         }
@@ -22,7 +22,7 @@ export default {
         loadEmails() {
             emailService.query()
                 .then(emails => {
-                    this.emailsToShow = emails
+                    this.emails = emails
                     this.composing = false
                 });
         },
@@ -49,7 +49,7 @@ export default {
     },
     computed: {
         newEmailBtnTxt() {
-            return this.composing ? 'Cancel' : 'New Email'
+            return this.composing ? 'fas fa-times fa-lg' : 'fas fa-pen-fancy fa-lg'
         }
     },
     created() {

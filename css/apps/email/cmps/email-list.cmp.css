@@ -1,17 +1,23 @@
 /* EMAILS TABLE */
 
+.email-table-container {
+    width: 1200px;
+    margin: auto;
+}
 
 /* general table layour */
 .email-table {
     background-color: rgba(219, 213, 204, 0.767);
     border-collapse: collapse;
-    width: 1100px;
-    margin: auto;
+    width: 100%;
     font-size: 0.9rem;
+    text-align: left;
+    table-layout: fixed;
 }
 
 tr {
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .read {
