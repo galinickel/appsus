@@ -1,4 +1,5 @@
 import { emailService } from '../services/email-service.js'
+import { eventBus } from '../../../site-services/event-bus.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
 
 
@@ -8,22 +9,43 @@ export default {
         <h2>Email</h2>
         <button @click="composing = !composing">{{newEmailBtnTxt}}</button>
         <template v-if="composing"><email-compose @emailSaved="loadEmails" :emails="emails"/></template>
-        <router-view :emails="emails"/>
+        <router-view @emailRead="markAsRead" :emails="emailsToShow"/>
         </div> `,
     data() {
         return {
-            emails: [],
+            emailsToShow: [],
             filterBy: null,
             composing: false
         }
     },
     methods: {
         loadEmails() {
-            emailService.query().then(emails => {
-                this.emails = emails
-                this.composing = false
-            })
+            emailService.query()
+                .then(emails => {
+                    this.emailsToShow = emails
+                    this.composing = false
+                });
         },
+        deleteEmail(id) {
+            emailService.remove(id)
+                .then(() => {
+                    this.loadEmails();
+                })
+        },
+        markAsRead(email) {
+            email.isRead = true;
+            emailService.update(email)
+                .then(() => {
+                    this.loadEmails();
+                })
+        },
+        toggleRead(email) {
+            email.isRead = !email.isRead;
+            emailService.update(email)
+                .then(() => {
+                    this.loadEmails();
+                })
+        }
     },
     computed: {
         newEmailBtnTxt() {
@@ -32,6 +54,10 @@ export default {
     },
     created() {
         this.loadEmails();
+
+        eventBus.$on('emailEreased', this.deleteEmail);
+        eventBus.$on('readToggled', this.toggleRead);
+
     },
     components: {
         emailCompose
