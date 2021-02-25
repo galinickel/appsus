@@ -1,7 +1,7 @@
 .keep-preview {
     border: 1px solid lightgray;
     border-radius: 15px;
-    min-height: 30vh;
+    min-height: 15vh;
     width: 40vh;
     margin: 5% 3.5%;
     padding: 1rem;
@@ -10,7 +10,10 @@
     font-size: 1.4rem;
     transition: .2s all;
     flex-direction: column;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
     break-inside: avoid;
+    display: inline-flex;
 
 }
 
@@ -19,16 +22,18 @@
     cursor: pointer;
 }
 
-.keep-preview.pinned { 
+.keep-preview.pinned {
     order: -1;
 }
+
 .keep-preview img {
     width: 95%;
     margin: 0 auto;
-    padding-bottom:5%;
+    padding-bottom: 5%;
 
 }
-.keep-preview iframe { 
+
+.keep-preview iframe {
     height: 25vh;
     margin-bottom: 5%;
 }
@@ -48,10 +53,17 @@
 .keep-preview-pin:hover {
     transform: rotate(0);
     color: rgb(165, 148, 122);
+    transition: .2s all;
+}
+
+.pinned-preview-container .keep-preview-pin{
+    transform: rotate(0);
+    color: rgb(22, 22, 22);
+
 }
 
 .edit-bar-container {
-    width:80%;
+    width: 80%;
     margin: auto auto 0 auto;
 
 }
@@ -71,9 +83,10 @@
 }
 
 .edit-bar li:hover {
-    color: black;
+    color: rgb(22, 22, 22);
 }
-.edit-bar .color-input { 
+
+.edit-bar .color-input {
     position: relative;
     width: 25px;
     height: 25px;

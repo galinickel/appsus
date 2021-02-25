@@ -23,7 +23,7 @@ export default {
         return {
             userNote: null,
             userNoteType: 'txt',
-            addType: 'addNoteTxt'
+            addType: 'addNoteTxt',
         }
     },
     methods: {

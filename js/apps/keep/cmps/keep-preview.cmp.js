@@ -10,10 +10,10 @@ import vidPreview from "./keep-preview-types/keep-vid-preview.cmp.js"
 export default {
     props: ['note'],
     template: `
-    <div :style=" {backgroundColor: noteColor}" :class="{pinned:isPinned}" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="editBar=false">
-        <i class="fas fa-thumbtack keep-preview-pin" :class="{pinned:isPinned}" @click="isPinned = !isPinned"></i>
+    <div :style="{backgroundColor: noteColor}" :class="{pinned:isPinned}" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="editBar=false">
+        <i class="fas fa-thumbtack keep-preview-pin" :class="{pinned:isPinned}" @click="toggleNotePinned"></i>
         <component :is="previewType" :note="note"></component>
-        <previewEditBar v-if="editBar" @changeColor="colorChanged" @noteErased="noteErased" :note="note"/>
+        <previewEditBar v-if="editBar" @changeColor="colorChanged" @noteErased="noteErased" @noteEdit="toggleNoteEdit" :note="note"/>
     </div>`,
     data() {
         return {
@@ -44,7 +44,14 @@ export default {
         },
         colorChanged(userColor) {
             this.noteColor = userColor
-            eventBus.$emit('noteColorChagned', noteId)
+            eventBus.$emit('noteColorChanged', this.note.id, this.noteColor)
+        },
+        toggleNotePinned() {
+            this.isPinned = !this.isPinned
+            eventBus.$emit('toggleNotePinned', this.note.id)
+        },
+        toggleNoteEdit(){
+            eventBus.$emit('toggleNoteEdit', this.note.id)
         }
     },
     created() {
@@ -52,6 +59,7 @@ export default {
         else if (this.note.type === 'img') this.previewType = 'imgPreview'
         else if (this.note.type === 'list') this.previewType = 'listPreview'
         else if (this.note.type === 'video') this.previewType = 'vidPreview'
+        this.noteColor = this.note.noteColor
     },
     components: {
         previewEditBar,
