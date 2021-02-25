@@ -58,6 +58,11 @@ export default {
             this.notes.forEach(note => {
                 note.isEditing=false
             });
+        },
+        renderNoteEdit(noteId,noteType,noteInfo){
+            keepService.editNote(noteId,noteType,noteInfo).then(() => {
+                this.loadNotes()})
+            
         }
     },
     computed: {},
@@ -67,6 +72,8 @@ export default {
         eventBus.$on('noteErased', this.deleteNote);
         eventBus.$on('noteColorChanged', this.saveNoteColor);
         eventBus.$on('toggleNoteEdit', this.toggleEditStatus);
+        eventBus.$on('noteEdited', this.renderNoteEdit);
+
 
     },
     components: {

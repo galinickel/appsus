@@ -59,6 +59,7 @@ export const keepService = {
     deleteNote,
     pinNote,
     toggleNoteEdit,
+    editNote
 }
 
 function addNote(noteType, note) {
@@ -109,3 +110,9 @@ function toggleNoteEdit(id) {
     })
 }
 
+function editNote(noteId,noteType,noteInfo) { 
+    return storageService.get(KEEP_KEY, noteId).then(note => {
+        note.info = noteInfo
+        return storageService.put(KEEP_KEY, note)
+    })
+}
