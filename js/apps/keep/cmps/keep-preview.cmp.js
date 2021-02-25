@@ -10,15 +10,17 @@ import vidPreview from "./keep-preview-types/keep-vid-preview.cmp.js"
 export default {
     props: ['note'],
     template: `
-    <div :style=" {backgroundColor: noteColor}" :class="note.id" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="editBar=false">
-    <component :is="previewType" :note="note"></component>
+    <div :style=" {backgroundColor: noteColor}" :class="{pinned:isPinned}" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="editBar=false">
+        <i class="fas fa-thumbtack keep-preview-pin" :class="{pinned:isPinned}" @click="isPinned = !isPinned"></i>
+        <component :is="previewType" :note="note"></component>
         <previewEditBar v-if="editBar" @changeColor="colorChanged" @noteErased="noteErased" :note="note"/>
-        </div>`,
+    </div>`,
     data() {
         return {
             editBar: false,
             noteColor: null,
-            previewType: null
+            previewType: null,
+            isPinned: false
         }
     },
     methods: {
