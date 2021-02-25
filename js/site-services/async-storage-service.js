@@ -8,6 +8,7 @@ export const storageService = {
     postMany,
     saveToStorage,
     loadFromStorage,
+    makeId
 }
 
 function query(entityType) {
@@ -20,11 +21,12 @@ function get(entityType, entityId) {
         .then(entities => entities.find(entity => entity.id === entityId))
 }
 
+//changed push to unshift for displaying new notes first. change if needed
 function post(entityType, newEntity) {
     newEntity.id = makeId()
     return query(entityType)
         .then(entities => {
-            entities.push(newEntity);
+            entities.unshift(newEntity);
             _save(entityType, entities)
             return newEntity;
         })

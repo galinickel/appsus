@@ -1,6 +1,6 @@
 export default {
     props: ['note'],
-    template: `<div class="keep-preview flex main-layout" @mouseover="editBar=true" @mouseleave="editBar=false">
+    template: `<div :class="note.id" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="editBar=false">
         <i class="fas fa-thumbtack keep-preview-pin"></i>
         <p v-if="note.type==='txt'">{{note.note}}</p>
         <img v-if="note.type==='img'" :src="note.note">

@@ -1,6 +1,35 @@
-import { storageService } from '../../../site-services/async-storage-service.js'
+import {
+    storageService
+} from '../../../site-services/async-storage-service.js'
 const KEEP_KEY = 'keepNotes'
-const notesData = []
+const notesData = [{
+        type: 'img',
+        id: storageService.makeId(),
+        note: 'https://media-cdn.tripadvisor.com/media/photo-s/15/dd/9a/56/kitchen-herb-garden.jpg'
+    },
+    {  type: 'list',
+    id: storageService.makeId(),
+    note: ['yoga class', 'pesto pasta', 'bake bread']},
+    {  type: 'list',
+    id: storageService.makeId(),
+    note: ['peanut butter sandwich', 'avocado sandwich', 'grilled cheese sandwich']},
+    {type: 'txt',
+    id: storageService.makeId(),
+    note: 'A day without laughter is a day wasted!'},
+    {
+        type: 'img',
+        id: storageService.makeId(),
+        note: 'https://i.pinimg.com/originals/a3/e5/bf/a3e5bfa12e907db4d0a3004023eaad42.jpg'
+    },
+    {
+        type: 'list',
+        id: storageService.makeId(),
+        note: ['milk', 'bread', 'eggs', 'candles', 'rice', 'mustard']
+    },
+    {type: 'txt',
+    id: storageService.makeId(),
+        note: 'Vue is kind of fun!'},
+]
 export const keepService = {
     query,
     // getNoteById,
@@ -9,7 +38,7 @@ export const keepService = {
     //deleteNote
 }
 
-function addNote(noteType, note) { 
+function addNote(noteType, note) {
     let newNote = {
         type: noteType,
         note: note,
@@ -18,8 +47,7 @@ function addNote(noteType, note) {
             isEditing: false
         }
     }
-    console.log(newNote);
-    storageService.post(KEEP_KEY, newNote)
+    return storageService.post(KEEP_KEY, newNote)
 }
 
 function query() {
@@ -29,5 +57,6 @@ function query() {
                 notes = notesData;
                 storageService.postMany(KEEP_KEY, notes);
             }
-            return notes })
+            return notes
+        })
 }

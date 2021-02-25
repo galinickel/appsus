@@ -25,8 +25,8 @@ export default {
             this.loadNotes();
         },
         loadNotes() { 
-            keepService.query('keepNotes')
-            .then (notes=> {this.notes = notes })
+            return keepService.query('keepNotes').then(notes=>
+                {this.notes=notes})
         }
     },
     computed: {
