@@ -10,7 +10,7 @@ export default {
         <br>
         {{email.body}}
         <br>
-        <router-link :to="'./all'">back</router-link>
+        <router-link :to="'./all'"><i class="fas fa-arrow-left fa-lg"></i></router-link>
     </div>`,
     data() {
         return {

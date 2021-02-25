@@ -10,3 +10,17 @@ body {
     margin: 0;
     font-family: sans-serif;
 }
+
+button {
+    cursor: pointer;
+    background-color: inherit;
+    border: none;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(61,
+61,
+61);
+}
