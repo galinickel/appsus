@@ -31,7 +31,7 @@ export default {
     methods: {
         saveNote(noteType, note) {
             keepService.addNote(noteType, note)
-                .then(this.$emit('noteSaved'))
+                .then(()=>{this.$emit('noteSaved')})
         }
     },
     computed: {},

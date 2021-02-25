@@ -48,7 +48,8 @@
 }
 
 .edit-bar {
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: baseline;
     list-style-type: none;
     font-size: 1rem;
     width: 90%;
@@ -63,4 +64,11 @@
 
 .edit-bar li:hover {
     color: black;
+}
+.edit-bar .color-input { 
+    position: relative;
+    width: 25px;
+    height: 25px;
+    right: 2vh;
+    border: none;
 }

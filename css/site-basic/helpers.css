@@ -9,3 +9,6 @@
 .app-page { 
     min-height: 80vh;
 }
+
+.hidden {
+opacity: 0;}

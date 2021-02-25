@@ -4,6 +4,9 @@ import keepPreview from '../cmps/keep-preview.cmp.js'
 import {
     keepService
 } from '../services/keep-service.js'
+import {
+    eventBus
+} from "../../../site-services/event-bus.js";
 
 export default {
     template: `<div class="app-page keep-app">
@@ -11,8 +14,8 @@ export default {
         <h3>Your notes. Brought together.</h3>
         <!-- <button @click="isAddNew = !isAddNew" class="keep-add-btn">{{addNewMsg}}</button>  -->
         <keep-add v-if="isAddNew" @noteSaved="renderNote"/>
-        <keep-list :notes="notes"/>
-        <keep-preview/>
+        <keep-list v-if="notes.length" :notes="notes"/>
+ 
         </div> `,
     data() {
         return {
@@ -24,15 +27,22 @@ export default {
         renderNote() {
             this.loadNotes();
         },
-        loadNotes() { 
-            return keepService.query('keepNotes').then(notes=>
-                {this.notes=notes})
+        loadNotes() {
+            keepService.query('keepNotes').then(notes => {
+                this.notes = notes
+            })
+        },
+        deleteNote(noteId) {
+            keepService.deleteNote(noteId)
+                .then(() => {
+                    this.loadNotes()
+                })
         }
     },
-    computed: {
-    },
+    computed: {},
     created() {
         this.loadNotes();
+        eventBus.$on('noteErased', this.deleteNote);
     },
     components: {
         keepAdd,

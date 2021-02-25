@@ -7,15 +7,21 @@ const notesData = [{
         id: storageService.makeId(),
         note: 'https://media-cdn.tripadvisor.com/media/photo-s/15/dd/9a/56/kitchen-herb-garden.jpg'
     },
-    {  type: 'list',
-    id: storageService.makeId(),
-    note: ['yoga class', 'pesto pasta', 'bake bread']},
-    {  type: 'list',
-    id: storageService.makeId(),
-    note: ['peanut butter sandwich', 'avocado sandwich', 'grilled cheese sandwich']},
-    {type: 'txt',
-    id: storageService.makeId(),
-    note: 'A day without laughter is a day wasted!'},
+    {
+        type: 'list',
+        id: storageService.makeId(),
+        note: ['yoga class', 'pesto pasta', 'bake bread']
+    },
+    {
+        type: 'list',
+        id: storageService.makeId(),
+        note: ['peanut butter sandwich', 'avocado sandwich', 'grilled cheese sandwich']
+    },
+    {
+        type: 'txt',
+        id: storageService.makeId(),
+        note: 'A day without laughter is a day wasted!'
+    },
     {
         type: 'img',
         id: storageService.makeId(),
@@ -26,16 +32,18 @@ const notesData = [{
         id: storageService.makeId(),
         note: ['milk', 'bread', 'eggs', 'candles', 'rice', 'mustard']
     },
-    {type: 'txt',
-    id: storageService.makeId(),
-        note: 'Vue is kind of fun!'},
+    {
+        type: 'txt',
+        id: storageService.makeId(),
+        note: 'Vue is kind of fun!'
+    },
 ]
 export const keepService = {
     query,
     // getNoteById,
     // searchNote,
     addNote,
-    //deleteNote
+    deleteNote
 }
 
 function addNote(noteType, note) {
@@ -59,4 +67,8 @@ function query() {
             }
             return notes
         })
+}
+
+function deleteNote(id) {
+    return storageService.remove(KEEP_KEY, id)
 }
