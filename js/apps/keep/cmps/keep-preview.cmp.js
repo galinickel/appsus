@@ -1,30 +1,24 @@
 import {
     eventBus
 } from "../../../site-services/event-bus.js";
+import previewEditBar from "./keep-preview-edit-bar.cmp.js"
+import txtPreview from "./keep-preview-types/keep-txt-preview.cmp.js"
+import imgPreview from "./keep-preview-types/keep-img-preview.cmp.js"
+import listPreview from "./keep-preview-types/keep-list-preview.cmp.js"
+import vidPreview from "./keep-preview-types/keep-vid-preview.cmp.js"
 
 export default {
     props: ['note'],
-    template: `<div :style=" {backgroundColor: noteColor}" :class="note.id" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="editBar=false">
-        <i class="fas fa-thumbtack keep-preview-pin"></i>
-        <p v-if="note.type==='txt'">{{note.note}}</p>
-        <img v-if="note.type==='img'" :src="note.note">
-        <iframe v-if="note.type==='video'" :src="note.note"> </iframe>
-        <ul v-if="note.type==='list'">
-            <li v-for="item in note.note">{{item}}</li>
-        </ul>
-        <div  class="edit-bar-container"> 
-        <ul v-if="editBar" class="flex edit-bar">
-            <li><i class="far fa-edit"></i></li>
-            <li><i class="fas fa-palette"><label ><input type="color"  v-model="noteColor"  class="hidden  color-input"></label></i></li>
-            <li><i class="fas fa-envelope-open-text"></i></li>
-            <li><i class="far fa-trash-alt" @click.stop="noteErased(note.id)"></i></li>
-        </ul>
-        </div>
+    template: `
+    <div :style=" {backgroundColor: noteColor}" :class="note.id" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="editBar=false">
+    <component :is="previewType" :note="note"></component>
+        <previewEditBar v-if="editBar" @changeColor="colorChanged" @noteErased="noteErased" :note="note"/>
         </div>`,
     data() {
         return {
             editBar: false,
             noteColor: null,
+            previewType: null
         }
     },
     methods: {
@@ -45,7 +39,25 @@ export default {
                         eventBus.$emit('noteErased', noteId)
                     }
                 })
+        },
+        colorChanged(userColor) {
+            this.noteColor = userColor
         }
     },
+    created() {
+    if(this.note.type === 'txt') this.previewType = 'txtPreview'
+    else if(this.note.type === 'img') this.previewType = 'imgPreview'
+    else if(this.note.type === 'list') this.previewType = 'listPreview'
+    else if(this.note.type === 'video') this.previewType = 'vidPreview'
+
+
+    },
+    components: {
+        previewEditBar,
+        txtPreview,
+        imgPreview,
+        listPreview,
+        vidPreview
+    }
 
 }

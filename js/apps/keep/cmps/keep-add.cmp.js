@@ -10,22 +10,20 @@ import {
 export default {
     template: `<div class="keep-add">
         <div class="add-container flex">
-        <add-note-txt v-if="userNoteType === 'txt'" @noteSaved="saveNote"/>
-        <add-note-img v-if="userNoteType === 'img'" @noteSaved="saveNote"/>
-        <add-note-list v-if="userNoteType === 'list'" @noteSaved="saveNote"/>
-        <add-note-video v-if="userNoteType === 'video'" @noteSaved="saveNote"/>
+        <component :is="addType" @noteSaved="saveNote"></component>
         <ul class="flex">
-            <li @click="userNoteType = 'txt'"><i class="far fa-file-alt"></i></li>
-            <li @click="userNoteType = 'img'"><i class="far fa-file-image"></i></li>
-            <li @click="userNoteType = 'video'"><i class="fab fa-youtube"></i></li>
-            <li @click="userNoteType = 'list'"><i class="fas fa-list-ul"></i></li>
+            <li @click="addType = addNoteTxt"><i class="far fa-file-alt"></i></li>
+            <li @click="addType = 'addNoteImg'"><i class="far fa-file-image"></i></li>
+            <li @click="addType = 'addNoteVideo'"><i class="fab fa-youtube"></i></li>
+            <li @click="addType = 'addNoteList'"><i class="fas fa-list-ul"></i></li>
         </ul>
         </div>
         </div>`,
     data() {
         return {
             userNote: null,
-            userNoteType: 'txt'
+            userNoteType: 'txt',
+            addType: 'addNoteTxt'
         }
     },
     methods: {
