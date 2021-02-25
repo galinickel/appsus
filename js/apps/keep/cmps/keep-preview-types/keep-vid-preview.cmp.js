@@ -1,7 +1,6 @@
 export default {
     props: ['note'],
     template: `<span>
-        <i class="fas fa-thumbtack keep-preview-pin"></i>
         <div>
     <iframe :src="vidUrl"></iframe>
 </div>

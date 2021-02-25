@@ -19,6 +19,9 @@
     cursor: pointer;
 }
 
+.keep-preview.pinned { 
+    order: -1;
+}
 .keep-preview img {
     width: 95%;
     margin: 0 auto;
