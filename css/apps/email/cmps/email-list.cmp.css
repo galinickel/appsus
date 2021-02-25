@@ -7,8 +7,15 @@
     border-collapse: collapse;
     width: 1100px;
     margin: auto;
+    font-size: 0.9rem;
 }
 
 tr {
     border: 1px solid black;
+}
+
+.read {
+    background-color: rgb(184,
+            179,
+            179);
 }

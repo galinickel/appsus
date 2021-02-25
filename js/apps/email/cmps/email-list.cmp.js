@@ -3,16 +3,17 @@ import emailPreview from './email-preview.cmp.js'
 export default {
 
     props: ['emails'],
-    template: ` <table class="email-table">
-        <tr v-for="email in emails" :key="email.id"class="email-table-item" @click="redirect(email.id)">
+    template: `<table v-if="emails" class="email-table">
+        <tr v-for="email in emails" :key="email.id" :class="{read: email.isRead}" @click="readEmail(email, email.id)">
             <email-preview :email="email"/>
-            </tr></table>`,
+            </tr>
+            </table>`,
     methods: {
-        redirect(id) {
+        readEmail(email, id) {
+            this.$emit('emailRead', email)
             this.$router.push('/email/' + id)
         }
-    }
-    ,
+    },
     components: {
         emailPreview
     }

@@ -27,7 +27,7 @@ const routes = [
                 component: emailList
             },
             {
-                path: 'inbox',
+                path: 'all',
                 // path: ':folder/',
                 component: emailList
             },

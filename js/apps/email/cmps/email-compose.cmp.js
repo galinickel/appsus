@@ -23,16 +23,13 @@ export default {
         emailSubmitted() {
             let newEmail = {
                 folder: 'sent', subject: this.subject, from: 'me', to: this.to,
-                body: this.body, isRead: true, sentAt: Date.now()
+                body: this.body, isRead: false, sentAt: Date.now()
             };
-            emailService.save(newEmail).then(email => {
-                // const msg = {
-                //     txt: 'email sent successfuly',
-                //     type: 'sucess'
-                // }
-                // eventBus.$emit('show-msg', msg)
-                this.$emit('emailSaved')
-            })
+            emailService.save(newEmail)
+                .then(() => {
+                    swal('Email sent', '', 'success');
+                    this.$emit('emailSaved');
+                })
         }
     }
 }

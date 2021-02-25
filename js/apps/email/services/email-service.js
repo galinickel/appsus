@@ -3,10 +3,45 @@ import { storageService } from '../../../site-services/async-storage-service.js'
 export const emailService = {
     query,
     getById,
-    save
+    save,
+    remove,
+    update
 }
 
 const EMAILS_KEY = 'emails'
+
+function query() {
+    return storageService.query(EMAILS_KEY)
+        .then(emails => {
+            if (!emails.length) {
+                emails = emailDB;
+                storageService.postMany(EMAILS_KEY, emails);
+            }
+            return emails;
+        }
+        );
+}
+
+function getById(id) {
+    return storageService.get(EMAILS_KEY, id)
+}
+
+function save(email) {
+    // for editing email drafts
+    // if (email.id) {
+    // return storageService.put(EMAILS_KEY, email)
+    return storageService.postShift(EMAILS_KEY, email)
+}
+
+function remove(id) {
+    return storageService.remove(EMAILS_KEY, id)
+}
+
+function update(id) {
+    return storageService.put(EMAILS_KEY, id)
+}
+
+
 
 
 // { folder: '', subject: '', from: '', to: '', body: '', isRead: false, sentAt: , id: }
@@ -50,27 +85,3 @@ let emailDB = [
         id: '15511339308031234567'
     }
 ]
-
-function query() {
-    return storageService.query(EMAILS_KEY)
-        .then(emails => {
-            if (!emails.length) {
-                emails = emailDB;
-                storageService.postMany(EMAILS_KEY, emails);
-            }
-            return emails;
-        }
-        );
-}
-
-function save(email) {
-    // for editing email drafts
-    // if (email.id) {
-    //     return storageService.put(EMAILS_KEY, email)
-
-    return storageService.post(EMAILS_KEY, email)
-}
-
-function getById(id) {
-    return storageService.get(EMAILS_KEY, id)
-}
