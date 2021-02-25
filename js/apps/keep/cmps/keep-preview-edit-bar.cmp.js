@@ -2,6 +2,9 @@ import editTxt from '../cmps/keep-edit-types/keep-edit-txt.cmp.js'
 import editList from '../cmps/keep-edit-types/keep-edit-list.cmp.js'
 import editImg from '../cmps/keep-edit-types/keep-edit-img.cmp.js'
 import editVideo from '../cmps/keep-edit-types/keep-edit-video.cmp.js'
+import {
+    eventBus
+} from "../../../site-services/event-bus.js";
 
 export default {
     props: ['note'],
@@ -13,7 +16,7 @@ export default {
             <li><i class="fas fa-envelope-open-text"></i></li>
             <li><i class="far fa-trash-alt" @click.stop="noteErased(note.id)"></i></li>
         </ul>
-        <component v-if="note.isEditing" :is="editType" :note="note"></component>
+        <component v-if="note.isEditing" :is="editType" :note="note" @noteEdited="renderNoteEdit"></component>
         </div>
         `,
     data() {
@@ -31,6 +34,9 @@ export default {
         },
         noteEdit(noteId) {
             this.$emit('noteEdit', noteId)
+        },
+        renderNoteEdit(noteId,noteType,editInfo){
+        eventBus.$emit('noteEdited', noteId,noteType,editInfo)
         }
     },
     created() {

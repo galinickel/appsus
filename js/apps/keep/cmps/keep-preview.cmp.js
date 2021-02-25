@@ -51,6 +51,7 @@ export default {
             eventBus.$emit('toggleNotePinned', this.note.id)
         },
         toggleNoteEdit(){
+            
             eventBus.$emit('toggleNoteEdit', this.note.id)
         }
     },
