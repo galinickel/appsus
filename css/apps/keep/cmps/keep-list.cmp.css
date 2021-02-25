@@ -1,18 +1,30 @@
 .keep-preview-container {
     column-count: 3;
-    column-gap: 1.5rem;
+    column-gap: 5.5rem;
     list-style-type: none;
     width: 75%;
     margin: 3% auto;
     transition: .2s all;
     padding-bottom: 5%;
-
 }
 
-
-
-@media (max-width: 1350px) {
+@media (max-width: 1050px) {
     .keep-preview-container {
         column-count: 2;
     }
+}
+
+.pinned-preview-container { 
+    columns: 3;
+    width: 75%;
+    margin: 3% auto;
+    column-gap: 5.5rem;
+}
+
+hr { 
+    width: 15%;
+    border: none;
+    border-bottom: 0.6rem dotted  rgb(209, 198, 181);
+    ;
+    
 }

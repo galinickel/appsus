@@ -20,6 +20,11 @@
 .keep-add li:hover { 
     color: rosybrown;
 }
+/* FIXME:  focus/active not workig*/
+.keep-add li i.focus{
+    color: rgb(146, 110, 110);
+
+}
 .keep-add input {
     margin-left: 5%;
     border: none;
