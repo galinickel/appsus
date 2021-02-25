@@ -1,6 +1,7 @@
 import { emailService } from '../services/email-service.js'
 import { eventBus } from '../../../site-services/event-bus.js'
 import emailCompose from '../cmps/email-compose.cmp.js'
+import emailFilter from '../cmps/email-filter.cmp.js'
 
 
 export default {
@@ -8,8 +9,10 @@ export default {
     template: `<div class="app-page">
         <h2>Email</h2>
         <button @click="composing = !composing"><i :class="newEmailBtnTxt"></i></button>
-        <template v-if="composing"><email-compose @emailSaved="loadEmails" :emails="emails"/></template>
-        <router-view @emailRead="markAsRead" :emails="emails"/>
+        <template v-if="composing">
+            <email-compose @emailSaved="loadEmails" :emails="emailsToDisplay"/></template>
+        <email-filter @filterSet="setFilter"/>
+        <router-view @emailRead="markAsRead" :emails="emailsToDisplay"/>
         </div> `,
     data() {
         return {
@@ -25,6 +28,9 @@ export default {
                     this.emails = emails
                     this.composing = false
                 });
+        },
+        setFilter(filter) {
+            this.filterBy = filter;
         },
         deleteEmail(id) {
             emailService.remove(id)
@@ -50,6 +56,19 @@ export default {
     computed: {
         newEmailBtnTxt() {
             return this.composing ? 'fas fa-times fa-lg' : 'fas fa-pen-fancy fa-lg'
+        },
+        emailsToDisplay() {
+            if (!this.filterBy) return this.emails;
+            let filteredEmails = this.emails;
+
+            if (this.filterBy.byContent) {
+                filteredEmails = emailService.searchByContent(this.emails, this.filterBy.byContent);
+            }
+
+            if (this.filterBy.byStatus)
+
+
+                return filteredEmails;
         }
     },
     created() {
@@ -60,6 +79,7 @@ export default {
 
     },
     components: {
-        emailCompose
+        emailCompose,
+        emailFilter
     }
 }

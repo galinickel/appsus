@@ -5,7 +5,8 @@ export const emailService = {
     getById,
     save,
     remove,
-    update
+    update,
+    searchByContent
 }
 
 const EMAILS_KEY = 'emails'
@@ -41,7 +42,14 @@ function update(id) {
     return storageService.put(EMAILS_KEY, id)
 }
 
+function searchByContent(emails, content) {
+    return emails.filter(email => {
+        return email.body.toLowerCase().includes(content.toLowerCase()) ||
+            email.from.toLowerCase().includes(content.toLowerCase()) ||
+            email.subject.toLowerCase().includes(content.toLowerCase());
+    });
 
+}
 
 
 // { folder: '', subject: '', from: '', to: '', body: '', isRead: false, sentAt: , id: }
