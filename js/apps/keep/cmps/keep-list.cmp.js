@@ -4,8 +4,6 @@ export default {
     props: ['notes'],
     template: `<div class="keep-list">
         <ul class="pinned-preview-container short-length">
-
-        
             <keep-preview :note="note" v-for="note in getPinned"  :key="note.id"/>
         </ul>     
 
@@ -19,16 +17,14 @@ export default {
             unpinnedNotes: null
         }
     },
-    methods: {
-    },
-    created() {
-    },
+    methods: {},
+    created() {},
     computed: {
         getUnpinned() {
             let unpinnedNotes = this.notes;
             return unpinnedNotes.filter(note => !note.isPinned)
         },
-        getPinned(){
+        getPinned() {
             let pinnedNotes = this.notes;
             return pinnedNotes.filter(note => note.isPinned)
         }

@@ -1,0 +1,13 @@
+
+
+.fadeHeight-enter-active,
+.fadeHeight-leave-active {
+    transition: all 0.4s;
+    max-height: 15vh;
+}
+
+.fadeHeight-enter,
+.fadeHeight-leave-to {
+    opacity: 0;
+    max-height: 0px;
+}

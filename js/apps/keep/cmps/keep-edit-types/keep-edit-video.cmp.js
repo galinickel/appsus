@@ -15,7 +15,7 @@ export default {
     },
     methods: {
         noteEdited() {
-            console.log(this.editInput);
+            console.log(this.note.id, this.note.type, this.editInput);
             this.$emit('noteEdited', this.note.id, this.note.type, this.editInput)
         }
     }

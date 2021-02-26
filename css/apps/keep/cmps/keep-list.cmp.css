@@ -1,8 +1,8 @@
 .keep-preview-container {
     column-count: 3;
-    column-gap: 5.5rem;
+    column-gap: 1%;
     list-style-type: none;
-    width: 75%;
+    width: 65%;
     margin: 3% auto;
     transition: .2s all;
     padding-bottom: 5%;
@@ -16,9 +16,9 @@
 
 .pinned-preview-container { 
     columns: 3;
-    width: 75%;
+    width: 65%;
     margin: 3% auto;
-    column-gap: 5.5rem;
+    column-gap: 1%;
 }
 
 hr { 

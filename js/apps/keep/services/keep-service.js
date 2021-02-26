@@ -3,54 +3,103 @@ import {
 } from '../../../site-services/async-storage-service.js'
 const KEEP_KEY = 'keepNotes'
 const notesData = [{
+        id: "Do4mloy",
+        info: "https://miro.medium.com/max/3000/1*JK9H1lnsMm9GAD_LAtaWAg.jpeg",
+        isEditing: false,
+        isPinned: true,
+        type: "img",
+    },
+    {
+        id: "dEW4jMa",
+        info: `"When in doubt: it's not a bug, it's a feature!`,
+        isEditing: false,
+        isPinned: true,
+        noteColor: "#f9cdd0",
+        type: "txt",
+    },
+    {
+        id: "QPY9YQQ",
+        info: "https://sweetpeaskitchen.com/wp-content/uploads/2014/02/the-best-french-onion-soup-recipe-featured-img.jpg",
+        isEditing: false,
+        isPinned: false,
+        type: "img",
+    },
+    {
+        type: 'list',
+        id: "jiDejLu",
+        isPinned: true,
+        isEditing: false,
+        info: ['make test data', 'make a homepage', 'make an about page', 'finish note & email integration', 'polish up CSS', 'implement note editing']
+    },
+    {
         type: 'img',
         id: storageService.makeId(),
         isPinned: false,
         isEditing: false,
-        info: 'https://media-cdn.tripadvisor.com/media/photo-s/15/dd/9a/56/kitchen-herb-garden.jpg'
+        info: 'https://i.pinimg.com/originals/a3/e5/bf/a3e5bfa12e907db4d0a3004023eaad42.jpg',
+        noteColor: "#ffecd6"
+
     },
     {
-        type: 'list',
-        id: storageService.makeId(),
-        isPinned: false,
+        id: "LRLyFnY",
+        info: "https://media0.giphy.com/media/xVRRDVP6lqtNQJrzN7/giphy.gif",
         isEditing: false,
-        info: ['yoga class', 'pesto pasta', 'bake bread']
+        isPinned: false,
+        noteColor: "#f7ff8a",
+        type: "img",
     },
     {
-        type: 'list',
-        id: storageService.makeId(),
-        isPinned: false,
+        id: "OxI9q3K",
+        info: "https://www.youtube.com/watch?v=idipMrfAZHk",
         isEditing: false,
-        info: ['peanut butter sandwich', 'avocado sandwich', 'grilled cheese sandwich']
+        isPinned: false,
+        type: "video",
     },
     {
-        type: 'txt',
-        id: storageService.makeId(),
-        isPinned: false,
+        id: "mxrpcCa",
+        info: "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18391254.jpg",
         isEditing: false,
-        info: 'A day without laughter is a day wasted!'
+        isPinned: false,
+        type: "img"
     },
     {
-        type: 'img',
-        id: storageService.makeId(),
-        isPinned: false,
+        id: "mHcNws8",
+        info: "https://www.youtube.com/watch?v=DtL_giO-EB8",
         isEditing: false,
-        info: 'https://i.pinimg.com/originals/a3/e5/bf/a3e5bfa12e907db4d0a3004023eaad42.jpg'
+        isPinned: true,
+        noteColor: "#c7dce6",
+        type: "video"
     },
     {
-        type: 'list',
-        id: storageService.makeId(),
-        isPinned: false,
+        id: "GfH23Z0",
+        info: "https://media-cdn.tripadvisor.com/media/photo-s/15/dd/9a/56/kitchen-herb-garden.jpg",
         isEditing: false,
-        info: ['milk', 'bread', 'eggs', 'candles', 'rice', 'mustard']
+        isPinned: true,
+        type: "img"
     },
     {
-        type: 'txt',
-        id: storageService.makeId(),
+        id: "vuIya29",
+        info: ["onion soup", " tomato soup", " carrot soup", " yam soup", " lentil soup"],
+        isEditing: true,
         isPinned: false,
-        isEditing: false,
-        info: 'Vue is kind of fun!'
+        type: "list"
     },
+    {
+        id: "locOq33",
+        info: "https://i.pinimg.com/originals/a3/e5/bf/a3e5bfa12e907db4d0a3004023eaad42.jpg",
+        isEditing: false,
+        isPinned: false,
+        noteColor: "#97b4a5",
+        type: "img"
+    },
+    {
+        id: "ncHlmAj",
+        info: "Vue can be a lot of fun!",
+        isEditing: false,
+        isPinned: true,
+        type: "txt"
+    }
+
 ]
 export const keepService = {
     query,
@@ -59,17 +108,16 @@ export const keepService = {
     deleteNote,
     pinNote,
     toggleNoteEdit,
-    editNote
+    editNote,
+    clearNoteEdit
 }
 
 function addNote(noteType, note) {
     let newNote = {
         type: noteType,
         info: note,
-        settings: {
-            isPinned: false,
-            isEditing: false
-        }
+        isPinned: false,
+        isEditing: false
     }
     return storageService.post(KEEP_KEY, newNote)
 }
@@ -103,14 +151,24 @@ function pinNote(id) {
     })
 }
 
-function toggleNoteEdit(id) { 
+function toggleNoteEdit(id) {
     return storageService.get(KEEP_KEY, id).then(note => {
         note.isEditing = !note.isEditing
         return storageService.put(KEEP_KEY, note)
     })
 }
 
-function editNote(noteId,noteType,noteInfo) { 
+function clearNoteEdit() {
+    return storageService.query(KEEP_KEY).then(notes => {
+        notes.forEach(note => {
+            return note.isEditing = false
+        });
+        console.log(notes);
+        return notes
+    })
+}
+
+function editNote(noteId, noteType, noteInfo) {
     return storageService.get(KEEP_KEY, noteId).then(note => {
         note.info = noteInfo
         return storageService.put(KEEP_KEY, note)

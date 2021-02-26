@@ -35,8 +35,9 @@ export default {
         noteEdit(noteId) {
             this.$emit('noteEdit', noteId)
         },
-        renderNoteEdit(noteId,noteType,editInfo){
-        eventBus.$emit('noteEdited', noteId,noteType,editInfo)
+        renderNoteEdit(noteId, noteType, editInfo) {
+            eventBus.$emit('noteEdited', noteId, noteType, editInfo),
+                this.editType = null
         }
     },
     created() {

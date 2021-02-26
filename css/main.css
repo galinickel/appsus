@@ -1,6 +1,8 @@
 @import './site-basic/base.css';
 @import './site-basic/fonts.css';
 @import './site-basic/helpers.css';
+@import './site-basic/transitions.css';
+
 
 @import './site-pages/home-page.css';
 @import './site-pages/about-page.css';

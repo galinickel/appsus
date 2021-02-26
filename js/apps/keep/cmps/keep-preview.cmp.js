@@ -10,11 +10,16 @@ import vidPreview from "./keep-preview-types/keep-vid-preview.cmp.js"
 export default {
     props: ['note'],
     template: `
+    <transition name="fadeHeight">
     <div :style="{backgroundColor: noteColor}" :class="{pinned:isPinned}" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="editBar=false">
-        <i class="fas fa-thumbtack keep-preview-pin" :class="{pinned:isPinned}" @click="toggleNotePinned"></i>
+    <i class="fas fa-thumbtack keep-preview-pin" :class="{pinned:isPinned}" @click="toggleNotePinned"></i>
         <component :is="previewType" :note="note"></component>
+        <transition name="fadeHeight">
         <previewEditBar v-if="editBar" @changeColor="colorChanged" @noteErased="noteErased" @noteEdit="toggleNoteEdit" :note="note"/>
-    </div>`,
+        </transition>
+    </div></transition>
+    `,
+        
     data() {
         return {
             editBar: false,
@@ -50,8 +55,7 @@ export default {
             this.isPinned = !this.isPinned
             eventBus.$emit('toggleNotePinned', this.note.id)
         },
-        toggleNoteEdit(){
-            
+        toggleNoteEdit() {
             eventBus.$emit('toggleNoteEdit', this.note.id)
         }
     },

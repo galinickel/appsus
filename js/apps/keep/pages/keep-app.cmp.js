@@ -34,40 +34,42 @@ export default {
         deleteNote(noteId) {
             keepService.deleteNote(noteId)
                 .then(() => {
-                    this.loadNotes()
                     this.clearEditStatus()
                 })
         },
-        saveNoteColor(id,color){
-            keepService.changeNoteColor(id,color)
-            this.loadNotes()
+        saveNoteColor(id, color) {
+            keepService.changeNoteColor(id, color)
             this.clearEditStatus()
         },
-        pinNote(noteId) { 
+        pinNote(noteId) {
             keepService.pinNote(noteId).then(() => {
-                this.loadNotes()
                 this.clearEditStatus()
             })
         },
-        toggleEditStatus(noteId){ 
+        //FIXME: this function only changes the editing status in local storage but does not clear the edit input from appearing
+        toggleEditStatus(noteId) {
             keepService.toggleNoteEdit(noteId).then(() => {
-                this.loadNotes()})
+                this.loadNotes()
+            })
         },
-        clearEditStatus(){
-            console.log(this.notes);
-            this.notes.forEach(note => {
-                note.isEditing=false
-            });
+        clearEditStatus() {
+            keepService.clearNoteEdit().then( () => {
+                this.loadNotes()
+            })
         },
-        renderNoteEdit(noteId,noteType,noteInfo){
-            keepService.editNote(noteId,noteType,noteInfo).then(() => {
-                this.loadNotes()})
-            
+        //FIXME: editing a video doesnt render instantly... only upon refresh
+        renderNoteEdit(noteId, noteType, noteInfo) {
+            return keepService.editNote(noteId, noteType, noteInfo).then(() => {
+                this.clearEditStatus()
+                this.$router.go();
+            })
+
         }
     },
     computed: {},
     created() {
         this.loadNotes()
+        this.clearEditStatus()
         eventBus.$on('toggleNotePinned', this.pinNote);
         eventBus.$on('noteErased', this.deleteNote);
         eventBus.$on('noteColorChanged', this.saveNoteColor);
