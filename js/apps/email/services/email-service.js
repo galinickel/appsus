@@ -7,7 +7,8 @@ export const emailService = {
     remove,
     update,
     searchByContent,
-    filterByStatus
+    filterByStatus,
+    sortBy
 }
 
 const EMAILS_KEY = 'emails'
@@ -32,7 +33,7 @@ function save(email) {
     // for editing email drafts
     // if (email.id) {
     // return storageService.put(EMAILS_KEY, email)
-    return storageService.postShift(EMAILS_KEY, email)
+    return storageService.post(EMAILS_KEY, email)
 }
 
 function remove(id) {
@@ -64,6 +65,11 @@ function filterByStatus(emails, status) {
     }
 }
 
+function sortBy(emails, sort) {
+    if (sort === 'date' || sort === '') return emails.sort((a, b) => (a.sentAt > b.sentAt) ? -1 : 1);
+    else if (sort === 'name') return emails.sort((a, b) => a.from.localeCompare(b.from));
+}
+
 // { folder: '', subject: '', from: '', to: '', body: '', isRead: false, sentAt: , id: }
 /// sent emails will always be read- true unless manually changed
 /// sent emails will always be sent from 'me'
@@ -84,10 +90,18 @@ let emailDB = [
     },
     {
         folder: 'inbox',
+        subject: 'Spreading the love with Zeplin ❤',
+        from: 'Zeplin', to: 'me',
+        body: `This month, we’ve been reflecting on and sharing stories about how teams use Zeplin with their other essential tools in the design-to-development process. Work is better when done together — that’s the whole reason why we prioritize deep integrations with both designers’ and developers’ tool stacks. We’ve rounded up a few stories about how teams use Zeplin with design tools like Adobe XD and Figma plus some fun ways we’ve made use of our new integration with Zapier.`,
+        isRead: true, sentAt: 1611515895000,
+        id: '15511339308001234444'
+    },
+    {
+        folder: 'inbox',
         subject: 'Almog, please add me to your LinkedIn network‏',
         from: 'LinkedIn', to: 'me',
         body: `Hi Almog, I'd like to join your LinkedIn network.`,
-        isRead: false, sentAt: 1611515895000,
+        isRead: true, sentAt: 1611515895000,
         id: '15511339308001234567'
     },
     {

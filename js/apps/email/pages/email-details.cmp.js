@@ -11,6 +11,7 @@ export default {
         {{email.body}}
         <br>
         <router-link :to="'./'"><i class="fas fa-arrow-left fa-lg"></i></router-link>
+        <button @click="setReplayEmail(email)">REPLAY</button>
     </div>`,
     data() {
         return {
@@ -25,6 +26,9 @@ export default {
                 .then(email => {
                     this.email = email
                 });
+        },
+        setReplayEmail(email) {
+            this.$emit('replayEmailSet', email);
         }
     },
     created() {

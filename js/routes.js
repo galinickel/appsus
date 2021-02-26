@@ -22,10 +22,10 @@ const routes = [
         path: '/email',
         component: emailApp,
         children: [
-            {
-                path: '/',
-                component: emailList
-            },
+            // {
+            //     path: '/all',
+            //     component: emailList
+            // },
             {
                 path: ':folder/',
                 component: emailList

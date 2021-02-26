@@ -1,29 +1,30 @@
 export default {
     props: ['emails'],
     name: 'email-folders',
-    template: `<aside class="email-folders">
-        <ul>
-            <li @click="routeTo('inbox')">
-                Inbox <span v-if="unreadCount" class="unread-count"> ({{unreadCount}}) </span>
-            </li>
-            <li @click="routeTo('sent')">Sent</li>
-            <li @click="routeTo('all')">All</li>
+    template: `<section class="email-folders">
+            <div class="folder" :class="{'active-folder': activeFolder === 'inbox'}"
+            @click="setActiveFolder('inbox')">
+            <i class="fas fa-inbox"></i> Inbox <span v-if="unreadCount" class="unread-count"> ({{unreadCount}}) </span>
+            </div>
+            <div class="folder" :class="{'active-folder': activeFolder === 'sent'}" @click="setActiveFolder('sent')"><i class="far fa-paper-plane"></i> Sent</div>
+            <div class="folder" :class="{'active-folder': activeFolder === 'all'}" @click="setActiveFolder('all')">All</div>
             <!-- <li>Drafts</li> -->
             <!-- <li>Trash</li> -->
-        </ul>
-</aside>`,
+</section>`,
     data() {
         return {
-            folders: ['inbox', 'sent', 'all']
+            activeFolder: 'inbox'
         }
     },
     methods: {
-        routeTo(folder) {
-            if (this.$route.params.folder === folder) return;
-            if (!this.folders.includes(this.$route.params.folder)) {
-                this.$router.push(`/email/${folder}/`)
-            }
-            this.$router.push(`/email/${folder}/`)
+        setActiveFolder(folder) {
+            this.$router.push(`/email/${folder}/`).catch(err => {
+                if (err.name !== 'NavigationDuplicated'
+                    && !err.message.includes('Avoided redundant navigation to current location')) {
+                    logError(err);
+                }
+            });
+            this.activeFolder = folder;
         }
     },
     computed: {

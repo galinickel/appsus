@@ -1,25 +1,32 @@
 import { emailService } from '../services/email-service.js'
 
 export default {
+    props: ['replayEmail'],
     name: 'email-compose',
-    template: `<div class="email-compose-container">
+    template: `<div class="email-compose">
         <form @submit.prevent="emailSubmitted">
-            <input v-model="to" placeholder="to">
-            <br>
-            <input v-model="subject" placeholder="subject">
-            <br>
-            <textarea v-model="body" placeholder="your email here..."></textarea>
-            <button type="submit">send</button>
+            <button class="close-compose-email"  @click.prevent="composeClosed"> <i class="fas fa-times fa-lg"></i> </button>
+            <h3 class="new-email-title">New Email</h3>
+            <input v-model="to" placeholder="to:">
+            <input v-model="subject" placeholder="subject:">
+            <textarea rows="12" cols="9" v-model="body" placeholder="your email here..."></textarea>
+            <button type="submit" class="email-submit-btn"><i class="far fa-paper-plane fa-2x"></i></button>
         </form>
         </div>`,
     data() {
         return {
             to: '',
             subject: '',
-            body: ''
+            body: '',
         }
     },
     methods: {
+        setData() {
+            if (this.replayEmail) {
+                this.subject = `re: ${this.replayEmail.subject}`
+                this.to = `${this.replayEmail.from}`
+            }
+        },
         emailSubmitted() {
             let newEmail = {
                 folder: 'sent', subject: this.subject, from: 'me', to: this.to,
@@ -27,10 +34,16 @@ export default {
             };
             emailService.save(newEmail)
                 .then(() => {
-                    swal('Email sent', '', 'success');
+                    swal({ text: 'Email Sent', buttons: false, icon: 'success', timer: 1500 })
                     this.$emit('emailSaved');
                 })
+        },
+        composeClosed() {
+            this.$emit('composeClosed');
         }
+    },
+    created() {
+        this.setData();
+        console.log(this.replayEmail);
     }
 }
-
