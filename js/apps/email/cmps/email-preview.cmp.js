@@ -8,11 +8,10 @@ export default {
     <td class="email-body">{{bodyPreview}}</td>
     <td class="email-date">{{emailDate}}</td>
     <td class="email-edit-bar">
-    <button class="email-edit-icon" @click.stop="emailEreased(email.id)">
-        <i v-if="editBar" class="far fa-trash-alt" ></i></button>
     <button class="email-edit-icon" @click.stop="readToggled(email)">
         <i v-if="editBar" :class="toggleReadIcon"></i></button>
-    </button>
+    <button class="email-edit-icon" @click.stop="emailEreased(email.id)">
+        <i v-if="editBar" class="far fa-trash-alt fa-lg" ></i></button>
     </td>
 </div>`,
     data() {
@@ -31,9 +30,7 @@ export default {
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        swal("Your email has been deleted", {
-                            icon: "success",
-                        });
+                        swal({ text: 'Your email has been deleted', buttons: false, icon: 'success', timer: 1500 });
                         eventBus.$emit('emailEreased', id)
                     }
                 });
@@ -44,10 +41,10 @@ export default {
     },
     computed: {
         bodyPreview() {
-            return this.email.body.substr(0, 35) + '...'
+            return this.email.body.substr(0, 30) + '...'
         },
         toggleReadIcon() {
-            return this.email.isRead ? 'far fa-eye-slash' : 'far fa-eye'
+            return this.email.isRead ? 'far fa-envelope fa-lg' : 'far fa-envelope-open fa-lg'
         },
         emailDate() {
             let sentDate = new Date(this.email.sentAt).toString()

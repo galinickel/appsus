@@ -19,7 +19,7 @@ export default {
         </transition>
     </div></transition>
     `,
-        
+
     data() {
         return {
             editBar: false,
@@ -32,17 +32,15 @@ export default {
 
         noteErased(noteId) {
             swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this note",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this note",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
                 .then((willDelete) => {
                     if (willDelete) {
-                        swal("Your note was successfully deleted", {
-                            icon: "success"
-                        });
+                        swal({ text: 'Your note has been deleted', buttons: false, icon: 'success', timer: 1500 });
                         eventBus.$emit('noteErased', noteId)
                     }
                 })

@@ -9,9 +9,13 @@ html {
 body {
     margin: 0;
     font-family: sans-serif;
+    color: #3b3b3b;
+    background-color: #efebeb;
 }
 
 button {
+    font-family: sans-serif;
+    color: #3b3b3b;
     cursor: pointer;
     background-color: inherit;
     border: none;

@@ -1,27 +1,41 @@
 /* EMAILS TABLE */
 
 .email-table-container {
-    width: 1025px;
-    margin: 0 50px;
+    width: 1030px;
+    max-height: 500px;
+    margin: 0 30px;
+    overflow-y: scroll;
+    padding-top: 20px;
 }
 
-/* general table layour */
 .email-table {
-    background-color: rgba(219, 213, 204, 0.767);
+    background-color: #fff7f4;
     border-collapse: collapse;
     width: 100%;
     font-size: 0.9rem;
     text-align: left;
     table-layout: fixed;
+    font-weight: bold;
 }
 
-tr {
-    border: 1px solid black;
+/* rows */
+
+tr:not(:last-child) {
+    border-bottom: 1px solid rgb(148, 146, 146);
     cursor: pointer;
 }
 
 .read {
-    background-color: rgb(184,
-            179,
-            179);
+    background-color: #e4dcdc;
+    font-weight: normal;
+}
+
+
+/* scroll bar */
+::-webkit-scrollbar-thumb {
+    background: #cebcbc;
+}
+
+::-webkit-scrollbar {
+    background-color: rgb(238, 228, 228);
 }

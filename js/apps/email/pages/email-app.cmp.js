@@ -8,12 +8,15 @@ import emailFolders from '../cmps/email-folders.cmp.js'
 export default {
     name: 'email-app',
     template: `<section class="app-page">
-        <button @click="composing = !composing"><i :class="newEmailBtnTxt"></i></button>
-        <template v-if="composing">
-            <email-compose @emailSaved="loadEmails" :emails="emailsToDisplay"/></template>
-        <email-filter @filterSet="setFilter"/>
+        <div class="email-compose" v-if="isComposing">
+            <email-compose @emailSaved="loadEmails" @composeClosed="isComposing=false" :emails="emailsToDisplay"/>
+        </div>
+        <email-filter @filterSet="setFilter" @sortSet="setSort"/>
         <div class="main-email-container"> 
-        <email-folders :emails="emails"/>
+        <aside class="email-aside">
+            <button class="compose-email-btn" @click="isComposing = !isComposing"><i :class="'fas fa-pen-fancy fa-lg'"> </i></button>
+            <email-folders :emails="emails"/>
+        </aside>
         <router-view @emailRead="markAsRead" :emails="emailsToDisplay"/>
     </div>
         </section> `,
@@ -21,7 +24,8 @@ export default {
         return {
             emails: [],
             filterBy: null,
-            composing: false
+            sortBy: null,
+            isComposing: false
         }
     },
     methods: {
@@ -29,11 +33,14 @@ export default {
             emailService.query()
                 .then(emails => {
                     this.emails = emails
-                    this.composing = false
+                    this.isComposing = false
                 });
         },
         setFilter(filter) {
             this.filterBy = filter;
+        },
+        setSort(sort) {
+            this.sortBy = sort;
         },
         deleteEmail(id) {
             emailService.remove(id)
@@ -57,21 +64,19 @@ export default {
         }
     },
     computed: {
-        newEmailBtnTxt() {
-            return this.composing ? 'fas fa-times fa-lg' : 'fas fa-pen-fancy fa-lg'
-        },
         emailsToDisplay() {
-            if (!this.filterBy) return this.emails;
-            let filteredEmails = this.emails;
+            let emailsToDisplay = this.emails;
 
-            if (this.filterBy.byContent) {
-                filteredEmails = emailService.searchByContent(filteredEmails, this.filterBy.byContent);
+            if (this.filterBy) {
+                if (this.filterBy.byContent)
+                    emailsToDisplay = emailService.searchByContent(emailsToDisplay, this.filterBy.byContent);
+                if (this.filterBy.byStatus)
+                    emailsToDisplay = emailService.filterByStatus(emailsToDisplay, this.filterBy.byStatus);
             }
 
-            if (this.filterBy.byStatus) {
-                filteredEmails = emailService.filterByStatus(filteredEmails, this.filterBy.byStatus);
-            }
-            return filteredEmails;
+            if (this.sortBy) emailsToDisplay = emailService.sortBy(emailsToDisplay, this.sortBy)
+
+            return emailsToDisplay;
         }
     },
     created() {

@@ -1,5 +1,5 @@
 header {
-    background-color: rgb(209, 198, 181);
+    background-color: #d1c1b7;
 }
 
 .header-container {
@@ -16,7 +16,7 @@ header {
 }
 
 .logo {
-    width: 140px;
+    width: 55px;
     height: auto;
     margin-inline-start: 30px;
 }

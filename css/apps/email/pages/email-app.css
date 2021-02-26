@@ -9,8 +9,49 @@
     justify-content: center;
 }
 
-/* later move to email-filter */
+/* TODO: move to email-filter */
 .email-search {
     text-align: center;
-    margin-bottom: 30px;
+}
+
+.email-search input {
+    border: none;
+    border-bottom: 1px solid gray;
+    width: 130px;
+    padding: 4px;
+    border-radius: 5px;
+    background: inherit;
+}
+
+.email-search select {
+    padding: 2px;
+    border-radius: 5px;
+    background: inherit;
+}
+
+.compose-email-btn {
+    margin-inline-start: 15px;
+    padding: 10px;
+    border: 2px solid #cebcbc;
+    border-radius: 50%;
+}
+
+
+/* TODO: move to email-folders */
+
+.email-folders {
+    padding: 10px;
+    min-width: 130px;
+    text-align: left;
+}
+
+.folder {
+    padding: 5px 10px;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.active-folder {
+    background-color: #e4dcdc;
 }

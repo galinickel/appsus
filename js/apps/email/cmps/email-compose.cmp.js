@@ -4,12 +4,12 @@ export default {
     name: 'email-compose',
     template: `<div class="email-compose-container">
         <form @submit.prevent="emailSubmitted">
-            <input v-model="to" placeholder="to">
-            <br>
-            <input v-model="subject" placeholder="subject">
-            <br>
-            <textarea v-model="body" placeholder="your email here..."></textarea>
-            <button type="submit">send</button>
+            <button class="close-compose-email"  @click.prevent="composeClosed"> <i class="fas fa-times fa-lg"></i> </button>
+            <h3 class="new-email-title">New Email</h3>
+            <input v-model="to" placeholder="to:">
+            <input v-model="subject" placeholder="subject:">
+            <textarea rows="15" cols="50" v-model="body" placeholder="your email here..."></textarea>
+            <button type="submit" class="email-submit-btn"><i class="far fa-paper-plane fa-2x"></i></button>
         </form>
         </div>`,
     data() {
@@ -27,9 +27,12 @@ export default {
             };
             emailService.save(newEmail)
                 .then(() => {
-                    swal('Email sent', '', 'success');
+                    swal({ text: 'Email Sent', buttons: false, icon: 'success', timer: 1500 })
                     this.$emit('emailSaved');
                 })
+        },
+        composeClosed() {
+            this.$emit('composeClosed');
         }
     }
 }

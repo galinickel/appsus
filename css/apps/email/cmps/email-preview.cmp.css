@@ -4,7 +4,6 @@ td {
 }
 
 .email-from {
-    font-weight: bold;
     width: 150px;
 }
 
@@ -24,7 +23,7 @@ td {
 /* edit bar */
 
 .email-edit-bar {
-    width: 90px;
+    width: 95px;
 }
 
 .email-edit-icon {

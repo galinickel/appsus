@@ -3,7 +3,6 @@ export const storageService = {
     query,
     get,
     post,
-    postShift,
     put,
     remove,
     postMany,
@@ -33,15 +32,15 @@ function post(entityType, newEntity) {
         })
 }
 
-function postShift(entityType, newEntity) {
-    newEntity.id = makeId()
-    return query(entityType)
-        .then(entities => {
-            entities.unshift(newEntity);
-            _save(entityType, entities)
-            return newEntity;
-        })
-}
+// function postShift(entityType, newEntity) {
+//     newEntity.id = makeId()
+//     return query(entityType)
+//         .then(entities => {
+//             entities.unshift(newEntity);
+//             _save(entityType, entities)
+//             return newEntity;
+//         })
+// }
 
 function postMany(entityType, newEntities) {
     return query(entityType)
