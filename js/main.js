@@ -9,8 +9,10 @@ const options = {
     template: `
         <section>
             <site-header />
+            <transition name="fade">
             <router-view />
             <site-footer/>
+            </transition>
         </section>
     `,
     components: {

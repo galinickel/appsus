@@ -1,0 +1,55 @@
+.app-page {
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+.horse {
+    width: 500px;
+    height: 500px;
+    background: transparent;
+    border: none;
+    margin: 3% 100px;
+    position: relative;
+    animation: 3s ease 0s normal none infinite swing;
+    transform-origin: center top;
+    -moz-animation: 3s ease 0s normal none infinite swing;
+    -moz-transform-origin: center top;
+    -webkit-animation: swing 3s infinite ease-in-out;
+    -webkit-transform-origin: top;
+
+}
+
+.home-container {
+    width: 43%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.home-page h1 {
+    font-family: 'Lobster';
+    color: #a5947a;
+
+}
+
+.main-title {
+    font-size: 4rem;
+}
+
+.app-title {
+    font-size: 2rem;
+}
+
+@keyframes swing {
+    0% {
+        -webkit-transform: rotate(-3deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(3deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(-3deg)
+    }
+}

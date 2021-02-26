@@ -3,8 +3,10 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    border: 1px solid black;
-    width: 50vh;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 5px 2px 0 rgb(0 0 0 / 15%), 0 5px 1px -4px rgb(0 0 0 / 25%), 0 1px 15px 0 rgb(0 0 0 / 12%);    width: 50vh;
 }
 
 .keep-add ul {
@@ -31,3 +33,4 @@
     outline: none;
     width: 175%;
 }
+

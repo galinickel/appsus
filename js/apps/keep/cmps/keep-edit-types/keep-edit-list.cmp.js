@@ -1,9 +1,9 @@
 export default {
     props: ['note'],
     template: `
-        <div  class="editList">     
+        <div  class="note-edit editList">     
         <form @submit.prevent="handleList" class="">
-            <input type="text" name=""  v-model="editInput">
+            <input ref="userInput" type="text" name=""  v-model="editInput">
             </form> 
 
         </div>
@@ -21,5 +21,7 @@ export default {
             this.editInput = this.editInput.split(',')
             this.noteEdited()
         }
-    }
-}
+    },
+    mounted(){
+        this.$refs.userInput.focus();
+    }}

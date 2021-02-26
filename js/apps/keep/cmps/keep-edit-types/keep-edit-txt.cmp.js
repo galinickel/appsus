@@ -1,9 +1,9 @@
 export default {
     props: ['note'],
     template: `
-        <div  class="editTxt">     
+        <div  class="note-edit editTxt">     
         <form @submit.prevent="noteEdited" class="">
-            <input type="text" name=""  v-model="editInput">
+            <input ref="userInput" type="text" name=""  v-model="editInput">
             </form> 
 
         </div>
@@ -17,5 +17,8 @@ export default {
         noteEdited() {
             this.$emit('noteEdited', this.note.id, this.note.type, this.editInput)
         }
+    },
+    mounted(){
+        this.$refs.userInput.focus();
     }
 }

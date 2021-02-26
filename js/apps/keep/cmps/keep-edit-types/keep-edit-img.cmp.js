@@ -3,7 +3,7 @@ export default {
     template: `
         <div class="note-edit edit-img">    
             <form @submit.prevent="noteEdited" class="">
-            <input type="url" name=""  v-model="editInput">
+            <input ref="userInput" type="url" name=""  v-model="editInput">
             </form> 
         </div>
         `,
@@ -16,5 +16,8 @@ export default {
         noteEdited() {
             this.$emit('noteEdited', this.note.id, this.note.type, this.editInput)
         }
+    },
+    mounted(){
+        this.$refs.userInput.focus();
     }
 }

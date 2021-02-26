@@ -1,9 +1,9 @@
 export default {
     props: ['note'],
     template: `
-        <div  class="editVideo">     
+        <div  class="note-edit editVideo">     
         <form @submit.prevent="noteEdited" class="">
-        <input type="url" v-model="editInput" placeholder="Enter Youtube URL..." pattern="http://www\.youtube\.com\/(.+)|https://www\.youtube\.com\/(.+)" required/>
+        <input ref="userInput" type="url" v-model="editInput" placeholder="Enter Youtube URL..." pattern="http://www\.youtube\.com\/(.+)|https://www\.youtube\.com\/(.+)" required/>
             </form> 
 
         </div>
@@ -18,5 +18,7 @@ export default {
             console.log(this.note.id, this.note.type, this.editInput);
             this.$emit('noteEdited', this.note.id, this.note.type, this.editInput)
         }
-    }
-}
+    },
+    mounted(){
+        this.$refs.userInput.focus();
+    }}

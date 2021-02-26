@@ -2,6 +2,7 @@ export default {
     template: `<div class="add-note add-note-img">
         <form @submit.prevent="noteSaved">
             <input type="url"  v-model="userNote"  placeholder="Enter Img URL..." required
+            
             title="The URL must be an image!">
         </form>
         </div>`,

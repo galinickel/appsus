@@ -7,11 +7,12 @@ import imgPreview from "./keep-preview-types/keep-img-preview.cmp.js"
 import listPreview from "./keep-preview-types/keep-list-preview.cmp.js"
 import vidPreview from "./keep-preview-types/keep-vid-preview.cmp.js"
 
+
 export default {
     props: ['note'],
     template: `
     <transition name="fadeHeight">
-    <div :style="{backgroundColor: noteColor}" :class="{pinned:isPinned}" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="editBar=false">
+    <div :style="{backgroundColor: noteColor}" :class="{pinned:isPinned}" class="keep-preview flex main-layout " @mouseover="editBar=true" @mouseleave="checkIfEditStopped">
     <i class="fas fa-thumbtack keep-preview-pin" :class="{pinned:isPinned}" @click="toggleNotePinned"></i>
         <component :is="previewType" :note="note"></component>
         <transition name="fadeHeight">
@@ -25,7 +26,8 @@ export default {
             editBar: false,
             noteColor: null,
             previewType: null,
-            isPinned: false
+            isPinned: false,
+            isEditing: false
         }
     },
     methods: {
@@ -56,7 +58,12 @@ export default {
             eventBus.$emit('toggleNotePinned', this.note.id)
         },
         toggleNoteEdit() {
+            this.isEditing = !this.isEditing
             eventBus.$emit('toggleNoteEdit', this.note.id)
+        },
+        checkIfEditStopped(){
+            if(!this.isEditing) this.editBar = false
+            else this.editBar = true
         }
     },
     created() {
@@ -71,7 +78,7 @@ export default {
         txtPreview,
         imgPreview,
         listPreview,
-        vidPreview
+        vidPreview,
     }
 
 }

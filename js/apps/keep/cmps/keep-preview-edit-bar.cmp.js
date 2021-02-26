@@ -11,10 +11,10 @@ export default {
     template: `
         <div  class="edit-bar-container"> 
         <ul  class="flex edit-bar">
-            <li><i class="far fa-edit" @click.stop="noteEdit(note.id)"></i></li>
-            <li><i class="fas fa-palette"><label ><input type="color" v-model="noteColor" @input="changedColor" class="hidden color-input"></label></i></li>
-            <li><i class="fas fa-envelope-open-text"></i></li>
-            <li><i class="far fa-trash-alt" @click.stop="noteErased(note.id)"></i></li>
+            <li><i title="Edit" class="far fa-edit" @click.stop="noteEdit(note.id)"></i></li>
+            <li><i title="Change Background" class="fas fa-palette"><label ><input type="color" v-model="noteColor" @input="changedColor" class="hidden color-input"></label></i></li>
+            <li><i title="Send as Email" class="fas fa-envelope-open-text"></i></li>
+            <li><i title="Delete Note" class="far fa-trash-alt" @click.stop="noteErased(note.id)"></i></li>
         </ul>
         <transition name="fadeHeight">
         <component v-if="note.isEditing" :is="editType" :note="note" @noteEdited="renderNoteEdit"></component>

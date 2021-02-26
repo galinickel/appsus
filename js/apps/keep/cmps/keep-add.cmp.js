@@ -2,6 +2,7 @@ import addNoteTxt from '../cmps/keep-new-note/add-note-txt.cmp.js'
 import addNoteImg from '../cmps/keep-new-note/add-note-img.cmp.js'
 import addNoteList from '../cmps/keep-new-note/add-note-list.cmp.js'
 import addNoteVideo from './keep-new-note/add-note-video.cmp.js'
+
 import {
     keepService
 } from '../services/keep-service.js'
@@ -12,10 +13,10 @@ export default {
         <div class="add-container flex">
         <component :is="addType" @noteSaved="saveNote"></component>
         <ul class="flex">
-            <li @click="addType = 'addNoteTxt'"><i  class="far fa-file-alt"></i></li>
-            <li @click="addType = 'addNoteImg'"><i  class="far fa-file-image"></i></li>
-            <li @click="addType = 'addNoteVideo'"><i  class="fab fa-youtube"></i></li>
-            <li @click="addType = 'addNoteList'"><i  class="fas fa-list-ul"></i></li>
+            <li @click="addType = 'addNoteTxt'"><i title="Add Text" class="far fa-file-alt"></i></li>
+            <li @click="addType = 'addNoteImg'"><i title="Add Image URL" class="far fa-file-image"></i></li>
+            <li @click="addType = 'addNoteVideo'"><i title="Add Video" class="fab fa-youtube"></i></li>
+            <li @click="addType = 'addNoteList'"><i title="Add List" class="fas fa-list-ul"></i></li>
         </ul>
         </div>
         </div>`,
@@ -37,7 +38,7 @@ export default {
         addNoteTxt,
         addNoteImg,
         addNoteList,
-        addNoteVideo
+        addNoteVideo,
     }
 
 }
