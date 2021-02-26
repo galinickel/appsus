@@ -56,6 +56,27 @@
     background-color: #e4dcdc;
 }
 
+@media(min-width: 1600px) {
+    .email-table-container {
+        max-width: 1400px;
+    }
+}
+
+
+@media (max-width: 1170px) {
+    .email-table-container {
+        max-width: 700px;
+    }
+
+    .email-body {
+        display: none;
+    }
+
+    .email-edit-icon {
+        font-size: 0.7rem;
+    }
+
+}
 
 @media (max-width: 1170px) {
     .email-table-container {
