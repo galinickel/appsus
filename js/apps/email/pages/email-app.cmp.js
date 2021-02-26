@@ -8,16 +8,16 @@ import emailFolders from '../cmps/email-folders.cmp.js'
 export default {
     name: 'email-app',
     template: `<section class="app-page">
-        <div class="email-compose" v-if="isComposing">
-            <email-compose @emailSaved="loadEmails" @composeClosed="isComposing=false" :emails="emailsToDisplay"/>
-        </div>
         <email-filter @filterSet="setFilter" @sortSet="setSort"/>
         <div class="main-email-container"> 
         <aside class="email-aside">
             <button class="compose-email-btn" @click="isComposing = !isComposing"><i :class="'fas fa-pen-fancy fa-lg'"> </i></button>
             <email-folders :emails="emails"/>
         </aside>
-        <router-view @emailRead="markAsRead" :emails="emailsToDisplay"/>
+        <router-view @replayEmailSet="setReplyEmail" @emailRead="markAsRead" :emails="emailsToDisplay"/>
+    </div>
+    <div v-if="isComposing">
+        <email-compose @emailSaved="loadEmails" @composeClosed="closeCompose" :replayEmail="replayEmail"/>
     </div>
         </section> `,
     data() {
@@ -25,7 +25,8 @@ export default {
             emails: [],
             filterBy: null,
             sortBy: null,
-            isComposing: false
+            isComposing: false,
+            replayEmail: null
         }
     },
     methods: {
@@ -41,6 +42,14 @@ export default {
         },
         setSort(sort) {
             this.sortBy = sort;
+        },
+        setReplyEmail(email) {
+            this.replayEmail = email;
+            this.isComposing = true;
+        },
+        closeCompose() {
+            this.isComposing = false;
+            this.replayEmail = null;
         },
         deleteEmail(id) {
             emailService.remove(id)

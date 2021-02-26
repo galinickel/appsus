@@ -41,7 +41,7 @@ export default {
     },
     computed: {
         bodyPreview() {
-            return this.email.body.substr(0, 30) + '...'
+            return this.email.body.substr(0, 25) + '...'
         },
         toggleReadIcon() {
             return this.email.isRead ? 'far fa-envelope fa-lg' : 'far fa-envelope-open fa-lg'

@@ -10,11 +10,11 @@
 }
 
 /* TODO: move to email-filter */
-.email-search {
+.email-filter-sort {
     text-align: center;
 }
 
-.email-search input {
+.email-filter-sort input {
     border: none;
     border-bottom: 1px solid gray;
     width: 130px;
@@ -23,7 +23,7 @@
     background: inherit;
 }
 
-.email-search select {
+.email-filter-sort select {
     padding: 2px;
     border-radius: 5px;
     background: inherit;
@@ -54,4 +54,45 @@
 
 .active-folder {
     background-color: #e4dcdc;
+}
+
+
+@media (max-width: 1170px) {
+    .email-table-container {
+        max-width: 700px;
+    }
+
+    .email-body {
+        display: none;
+    }
+
+    .email-edit-icon {
+        font-size: 0.7rem;
+    }
+
+}
+
+@media (max-width: 560px) {
+
+    .main-email-container {
+        flex-direction: column;
+    }
+
+    .email-aside {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .email-folders {
+        display: flex;
+    }
+
+    .compose-email-btn {
+        height: 40%;
+    }
+
+    .email-filter-sort {
+        margin-bottom: 20px;
+    }
 }

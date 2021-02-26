@@ -1,7 +1,7 @@
 /* EMAILS TABLE */
 
 .email-table-container {
-    width: 1030px;
+    max-width: 1000px;
     max-height: 500px;
     margin: 0 30px;
     overflow-y: scroll;

@@ -9,7 +9,7 @@ export default {
             <email-preview :email="email"/>
             </tr>
             </table>
-            <!-- <h4 v-if="!folderEmails.length">it feels empty... no emails here yet</h4> -->
+            <h4 v-if="!folderEmails.length">it feels empty... no emails here yet</h4>
             </div>`,
     computed: {
         folderEmails() {

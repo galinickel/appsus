@@ -2,7 +2,6 @@ export default {
     props: ['emails'],
     name: 'email-folders',
     template: `<section class="email-folders">
-        <div>
             <div class="folder" :class="{'active-folder': activeFolder === 'inbox'}"
             @click="setActiveFolder('inbox')">
             <i class="fas fa-inbox"></i> Inbox <span v-if="unreadCount" class="unread-count"> ({{unreadCount}}) </span>
@@ -11,12 +10,10 @@ export default {
             <div class="folder" :class="{'active-folder': activeFolder === 'all'}" @click="setActiveFolder('all')">All</div>
             <!-- <li>Drafts</li> -->
             <!-- <li>Trash</li> -->
-        </div>
 </section>`,
     data() {
         return {
-            folders: ['inbox', 'sent', 'all'],
-            activeFolder: 'all'
+            activeFolder: 'inbox'
         }
     },
     methods: {
