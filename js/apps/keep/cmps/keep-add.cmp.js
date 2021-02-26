@@ -12,10 +12,10 @@ export default {
         <div class="add-container flex">
         <component :is="addType" @noteSaved="saveNote"></component>
         <ul class="flex">
-            <li @click="addType = 'addNoteTxt'"><i class="far fa-file-alt"></i></li>
-            <li @click="addType = 'addNoteImg'"><i class="far fa-file-image"></i></li>
-            <li @click="addType = 'addNoteVideo'"><i class="fab fa-youtube"></i></li>
-            <li @click="addType = 'addNoteList'"><i class="fas fa-list-ul"></i></li>
+            <li @click="addType = 'addNoteTxt'"><i  class="far fa-file-alt"></i></li>
+            <li @click="addType = 'addNoteImg'"><i  class="far fa-file-image"></i></li>
+            <li @click="addType = 'addNoteVideo'"><i  class="fab fa-youtube"></i></li>
+            <li @click="addType = 'addNoteList'"><i  class="fas fa-list-ul"></i></li>
         </ul>
         </div>
         </div>`,

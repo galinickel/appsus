@@ -16,7 +16,9 @@ export default {
             <li><i class="fas fa-envelope-open-text"></i></li>
             <li><i class="far fa-trash-alt" @click.stop="noteErased(note.id)"></i></li>
         </ul>
+        <transition name="fadeHeight">
         <component v-if="note.isEditing" :is="editType" :note="note" @noteEdited="renderNoteEdit"></component>
+</transition>
         </div>
         `,
     data() {

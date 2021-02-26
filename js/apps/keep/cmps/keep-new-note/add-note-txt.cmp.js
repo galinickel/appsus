@@ -13,6 +13,7 @@ export default {
         },
         methods: {noteSaved() { 
         this.$emit('noteSaved', this.userNoteType, this.userNote)
+        this.userNote=null
         }
         },
         computed: {

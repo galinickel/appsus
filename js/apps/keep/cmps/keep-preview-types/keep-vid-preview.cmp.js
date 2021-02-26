@@ -2,7 +2,7 @@ export default {
     props: ['note'],
     template: `<span>
         <div>
-    <iframe frameborder="5" :src="vidUrl"></iframe>
+    <iframe  width=”560″ height=”315″ frameborder="5" :src="vidUrl"></iframe>
 </div>
 </span>`,
     data() {
@@ -11,7 +11,7 @@ export default {
         }
     },
     created() {
-        this.vidUrl='https://www.youtube.com/embed/'+this.youtubeParser(this.note.info)
+        this.vidUrl='https://www.youtube.com/embed/'+this.youtubeParser(this.note.info)+'?rel=0&vq=hd720 for 720p'
 
     },
     methods: {

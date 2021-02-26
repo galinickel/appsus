@@ -20,8 +20,8 @@
 .keep-add li:hover { 
     color: rosybrown;
 }
-/* FIXME:  focus/active not workig*/
-.keep-add li i.focus{
+.keep-add li:after,
+.keep-add i::after{
     color: rgb(146, 110, 110);
 
 }
