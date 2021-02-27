@@ -5,6 +5,8 @@
 @import '../cmps/email-preview.cmp.css';
 
 .main-email-container {
+    max-width: 93%;
+    margin: auto;
     display: flex;
     justify-content: center;
 }

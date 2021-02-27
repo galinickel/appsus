@@ -2,13 +2,25 @@
 
 /* LARGE SCREEN */
 
-@media(min-width: 1600px) {
+@media(min-width: 1500px) {
 
     /* MAIL */
 
-    .email-table-container {
-        max-width: 1400px;
+    .email-from {
+        width: 300px;
     }
+
+
+    .email-subject {
+        width: 550px;
+    }
+
+    .email-body {
+        width: 450px;
+    }
+
+
+    /* HOMEPAGE */
 
     .horse {
         height: 500px;
@@ -30,8 +42,8 @@
 
     /* MAIL */
 
-    .email-table-container {
-        max-width: 700px;
+    .main-email-container {
+        max-width: unset;
     }
 
     .email-body {
@@ -106,7 +118,6 @@
     }
 
     /* MAIL */
-
     .main-email-container {
         flex-direction: column;
     }
@@ -128,9 +139,6 @@
     .email-filter-sort {
         margin-bottom: 20px;
     }
-    .email-details-container {
-        max-width: 550px;
-    }
 
 }
 
@@ -147,7 +155,10 @@
     }
 
     /* MAIL */
-    .email-details-container {
-        max-width: 450px;
+
+    .email-date {
+        display: none;
     }
+
+
 }
