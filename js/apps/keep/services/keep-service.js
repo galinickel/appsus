@@ -163,7 +163,6 @@ function clearNoteEdit() {
         notes.forEach(note => {
             return note.isEditing = false
         });
-        console.log(notes);
         return notes
     })
 }
