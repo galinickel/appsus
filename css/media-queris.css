@@ -160,7 +160,7 @@
 
     .keep-preview-container,
     .pinned-preview-container {
-        column-count: 2;
+        column-count: 1;
         padding: 0;
         min-width: 200px;
     }
