@@ -3,7 +3,7 @@
     column-gap: 5%;
     list-style-type: none;
     width: 75%;
-    margin: 3% auto;
+    margin: 1% auto;
     transition: .2s all;
     padding-bottom: 5%;
 }
@@ -11,9 +11,9 @@
 .pinned-preview-container {
     columns: 3;
     width: 65%;
-    margin: 3% auto;
+    margin: 1% auto;
     column-gap: 1%;
-    min-height: 35vh;
+    min-height: 5vh;
 }
 
 hr {
