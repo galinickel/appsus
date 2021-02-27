@@ -85,12 +85,25 @@ You can read more about us in our 'About' page.`,
         id: '15511339305941234174'
     },
     {
+        folder: 'inbox', subject: 'Discover next-generation slideshows‏', from: 'Canva', to: 'me',
+        body: `Fromthe boardroom to the classroom to your living room, our Slideshow Videos are the perfect way 
+to introduce your team, say happy birthday to a classmate, or show family and friends your favorite holiday snaps. Simply pick a template, add animation, text effects, video clips, music, and more to have your audience glued to the screen from start to finish.`,
+        isRead: false, sentAt: 1614362113000, id: '1614273355adfd'
+    },
+
+    {
         folder: 'inbox', subject: 'How are you?',
         from: 'Gali', to: 'me',
         body: `Hey Almog! i'm just checking up how the sprint work is going for you
 let me know if you want to have a zoom meeting and catch up :)`,
         isRead: true, sentAt: 1614193632740,
         id: '15511339305941234567'
+    },
+    {
+        folder: 'inbox', subject: `[New collection] International Women’s Day 2021‏
+    `, from: 'Depositpics', to: 'me', body: `International Women’s Day is coming up soon! Explore our 2021 collection celebrating a special day around the world with inspiring visuals and some of the newest files from the Depositphotos library.
+        Kind regards, The Depositphotos Team.
+    `, isRead: true, sentAt: 1612790413000, id: '1614172813000er'
     },
     {
         folder: 'sent', subject: 're: How are you?',
