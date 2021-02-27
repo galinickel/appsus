@@ -2,8 +2,21 @@ import {
     storageService
 } from '../../../site-services/async-storage-service.js'
 const KEEP_KEY = 'keepNotes'
-const notesData = [
-
+const notesData = [{
+        id: "UOwqJj9",
+        info: "https://images.hdqwalls.com/download/avatar-the-last-airbender-an-2560x1440.jpg",
+        isEditing: false,
+        isPinned: false,
+        noteColor: "#bcc9f0",
+        type: "img"
+    },
+    
+    {id: "8vqxk3F",
+    info: "https://i.pinimg.com/originals/ab/cb/a5/abcba5a0fe5f8d5f7389c90b1bc7fcd1.jpg",
+    isEditing: false,
+    noteColor: "#a8d1b2",
+    isPinned: false,
+    type: "img"},
     {
         id: "6Fqc7N9",
         info: "✉️ Welcome to our app, hope you will enjoy it!",
@@ -19,6 +32,7 @@ const notesData = [
         info: "https://miro.medium.com/max/3000/1*JK9H1lnsMm9GAD_LAtaWAg.jpeg",
         isEditing: false,
         isPinned: false,
+        noteColor: "#ffddc7",
         type: "img",
     },
     {
@@ -29,17 +43,11 @@ const notesData = [
         noteColor: "#f9cdd0",
         type: "txt",
     },
-    {
-        id: "QPY9YQQ",
-        info: "https://sweetpeaskitchen.com/wp-content/uploads/2014/02/the-best-french-onion-soup-recipe-featured-img.jpg",
-        isEditing: false,
-        isPinned: false,
-        type: "img",
-    },
+ 
     {
         type: 'list',
         id: "jiDejLu",
-        isPinned: false,
+        isPinned: true,
         isEditing: false,
         info: ['make test data', 'make a homepage', 'make an about page', 'finish note & email integration', 'polish up CSS', 'implement note editing']
     },
@@ -72,7 +80,8 @@ const notesData = [
         info: "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18391254.jpg",
         isEditing: false,
         isPinned: false,
-        type: "img"
+        noteColor: "#edd1ff",
+        type: "img",
     },
     {
         id: "mHcNws8",
@@ -109,6 +118,7 @@ const notesData = [
         info: "Vue can be a lot of fun!",
         isEditing: false,
         isPinned: false,
+        noteColor: "#83f3fb",
         type: "txt"
     }
 
