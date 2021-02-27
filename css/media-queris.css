@@ -154,8 +154,23 @@
 
     /*KEEP*/
 
+    .keep-preview-container,
+    .pinned-preview-container {
+        column-count: 2;
+        padding: 0;
+        min-width: 200px;
+    }
 }
 
+
+@media (max-width: 690px){
+    .keep-preview-container,
+    .pinned-preview-container {
+        column-count: 1;
+        padding: 0;
+        min-width: 200px;
+    }
+}
 /*PHONE*/
 @media (max-width: 500px) {
 
@@ -165,11 +180,17 @@
     .keep-list {
         margin: 2%;
     }
-    .keep-add,
-    .keep-add ul{
-width: 80%;
-    }
 
+    .keep-add,
+    .keep-add ul {
+        width: 80%;
+    }
+    .keep-preview-container,
+    .pinned-preview-container {
+        column-count: 1;
+        padding: 0;
+        min-width: 200px;
+    }
     /* MAIL */
 
     .email-date {
