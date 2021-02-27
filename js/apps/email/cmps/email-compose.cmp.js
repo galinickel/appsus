@@ -25,6 +25,7 @@ export default {
             if (this.replayEmail) {
                 this.subject = `re: ${this.replayEmail.subject}`
                 this.to = `${this.replayEmail.from}`
+                // this.body = `----------------------------------${this.replayEmail.body}`
             }
         },
         emailSubmitted() {
@@ -34,7 +35,7 @@ export default {
             };
             emailService.save(newEmail)
                 .then(() => {
-                    swal({ text: 'Email Sent', buttons: false, icon: 'success', timer: 1500 })
+                    swal({ text: 'Email Sent', buttons: false, icon: 'success', timer: 1200 })
                     this.$emit('emailSaved');
                 })
         },
@@ -44,6 +45,5 @@ export default {
     },
     created() {
         this.setData();
-        console.log(this.replayEmail);
     }
 }

@@ -3,7 +3,7 @@ export default {
         <h1 class="main-title">No need to swing between apps.</h1>
     <div class="home-container flex">
     <h1 class="app-title">Keep</h1>
-            <img src="https://raw.githubusercontent.com/galinickel/appsus/main/imgs/rocking-horse.svg?sanitize=true" alt="" class="horse">
+            <img src="imgs/rocking-horse.svg" alt="" class="horse">
             <h1 class="app-title">Mail</h1>
 
             </div>
