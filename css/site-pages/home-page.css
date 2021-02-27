@@ -5,11 +5,11 @@
 }
 
 .horse {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     background: transparent;
     border: none;
-    margin: 3% 100px;
+    margin: 3% auto;
     position: relative;
     animation: 3s ease 0s normal none infinite swing;
 }
@@ -23,15 +23,17 @@
 .home-page h1 {
     font-family: 'Lobster';
     color: #ba9999;
+    margin: 0;
 
 }
 
 .main-title {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .app-title {
     font-size: 2rem;
+    cursor: pointer;
 }
 
 @keyframes swing {

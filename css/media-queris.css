@@ -1,0 +1,83 @@
+/* defult css views are made for a laptop screen */
+
+/* LARGE SCREEN */
+
+@media(min-width: 1600px) {
+
+    /* MAIL */
+
+    .email-table-container {
+        max-width: 1400px;
+    }
+
+    .horse {
+        height: 500px;
+        width: 500px;
+    }
+
+    .main-title {
+        font-size: 4rem;
+    }
+
+}
+
+/* MEDIUM */
+
+@media (max-width: 1170px) {
+
+    /* MAIL */
+
+    .email-table-container {
+        max-width: 700px;
+    }
+
+    .email-body {
+        display: none;
+    }
+
+    .email-edit-icon {
+        font-size: 0.7rem;
+    }
+
+    /* KEEP */
+
+    .keep-preview-container {
+        column-count: 2;
+        width: unset;
+    }
+}
+
+/* SMALL */
+
+@media (max-width: 680px) {
+
+    /* MAIL */
+
+    .main-email-container {
+        flex-direction: column;
+    }
+
+    .email-aside {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .email-folders {
+        display: flex;
+    }
+
+    .compose-email-btn {
+        height: 40%;
+    }
+
+    .email-filter-sort {
+        margin-bottom: 20px;
+    }
+
+    /* KEEP */
+
+    .keep-preview-container {
+        column-count: 1;
+    }
+}

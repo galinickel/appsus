@@ -8,23 +8,17 @@
     padding-bottom: 5%;
 }
 
-@media (max-width: 1050px) {
-    .keep-preview-container {
-        column-count: 2;
-    }
-}
-
-.pinned-preview-container { 
+.pinned-preview-container {
     columns: 3;
     width: 65%;
     margin: 3% auto;
     column-gap: 1%;
 }
 
-hr { 
+hr {
     width: 15%;
     border: none;
-    border-bottom: 0.6rem dotted  rgb(209, 198, 181);
+    border-bottom: 0.6rem dotted rgb(209, 198, 181);
     ;
-    
+
 }
