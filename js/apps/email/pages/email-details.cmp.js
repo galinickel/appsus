@@ -1,7 +1,7 @@
 import { emailService } from '../services/email-service.js';
 
-export default {
-    template: `<div v-if="email" class="email-details-container">
+export default { 
+    template: `<div v-if="email" class="email-details-container ">
         from: {{email.from}}
         <br>
         to: {{email.to}}
@@ -17,7 +17,6 @@ export default {
         return {
             email: null
         }
-
     },
     methods: {
         loadEmail() {

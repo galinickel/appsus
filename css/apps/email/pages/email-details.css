@@ -1,10 +1,8 @@
 /* should be similiar to .email-table-container */
 .email-details-container {
-    margin: auto;
+    margin: 20px auto;
     text-align: center;
     width: 1030px;
-    margin: 0 30px;
-    margin-top: 20px;
     padding-top: 20px;
     background-color: #e4dcdc;
 }
