@@ -5,7 +5,6 @@
     max-height: 500px;
     margin: 0 30px;
     overflow-y: scroll;
-    padding-top: 20px;
 }
 
 .email-table {
@@ -19,6 +18,10 @@
 }
 
 /* rows */
+
+tr:hover {
+    color: #a17373;
+}
 
 tr:not(:last-child) {
     border-bottom: 1px solid rgb(148, 146, 146);

@@ -12,6 +12,7 @@
 /* TODO: move to email-filter */
 .email-filter-sort {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .email-filter-sort input {

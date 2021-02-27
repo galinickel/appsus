@@ -11,7 +11,7 @@ export default {
         {{email.body}}
         <br>
         <router-link :to="'./'"><i class="fas fa-arrow-left fa-lg"></i></router-link>
-        <button @click="setReplayEmail(email)">REPLAY</button>
+        <button @click="setReplayEmail(email)"><i class="fas fa-reply fa-2x"></i></button>
     </div>`,
     data() {
         return {
