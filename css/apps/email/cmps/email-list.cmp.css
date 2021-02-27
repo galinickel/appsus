@@ -32,12 +32,3 @@ tr:not(:last-child) {
     font-weight: normal;
 }
 
-
-/* scroll bar */
-::-webkit-scrollbar-thumb {
-    background: #cebcbc;
-}
-
-::-webkit-scrollbar {
-    background-color: rgb(238, 228, 228);
-}

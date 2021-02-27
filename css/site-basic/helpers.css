@@ -1,19 +1,24 @@
-.flex{
+.flex {
     display: flex;
 }
 
-.main-layout { 
+.bold {
+    font-weight: bold;
+}
+
+.main-layout {
     max-width: 1000px;
 }
 
-.app-page { 
+.app-page {
     min-height: 80vh;
 }
 
 .hidden {
-opacity: 0;}
+    opacity: 0;
+}
 
-.stylized-input { 
+.stylized-input {
     width: 100%;
     border-radius: 5px;
     border: none;

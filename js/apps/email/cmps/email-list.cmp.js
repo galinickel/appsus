@@ -24,7 +24,7 @@ export default {
         readEmail(email, id) {
             this.$emit('emailRead', email)
             this.$router.push('/email/' + this.$route.params.folder + '/' + id)
-        },
+        }
     },
     components: {
         emailPreview

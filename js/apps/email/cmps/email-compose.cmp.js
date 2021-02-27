@@ -1,3 +1,4 @@
+import { eventBus } from '../../../site-services/event-bus.js'
 import { emailService } from '../services/email-service.js'
 
 export default {
@@ -25,11 +26,8 @@ export default {
             if (this.replayEmail) {
                 this.subject = `re: ${this.replayEmail.subject}`
                 this.to = `${this.replayEmail.from}`
-                // this.body = `----------------------------------${this.replayEmail.body}`
             }
-            else if (this.note) {
-                this.body = this.note
-            }
+            else if (this.note) this.body = this.note
         },
         emailSubmitted() {
             let newEmail = {
@@ -44,7 +42,7 @@ export default {
         },
         composeClosed() {
             this.$emit('composeClosed');
-        }
+        },
     },
     created() {
         this.setData();

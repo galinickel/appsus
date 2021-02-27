@@ -21,19 +21,8 @@ export default {
     },
     methods: {
         emailEreased(id) {
-            swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this email",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal({ text: 'Your email has been deleted', buttons: false, timer: 1500 });
-                        eventBus.$emit('emailEreased', id)
-                    }
-                });
+            eventBus.$emit('emailEreased', id)
+
         },
         readToggled(email) {
             eventBus.$emit('readToggled', email)
