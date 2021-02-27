@@ -106,6 +106,30 @@ let me know if you want to have a zoom meeting and catch up :)`,
     `, isRead: true, sentAt: 1612790413000, id: '1614172813000er'
     },
     {
+        folder: 'inbox', subject: 'Almog, thanks for being a valued member', from: 'LinkedIn', to: 'me',
+        body: `
+        Hi Almog,
+Thanks for being part of the LinkedIn community - we're so glad you're here. As a thank you, we'd like to offer you one free month of LinkedIn Premium.
+
+Here's how Premium can help:
+
+*Who's viewed your profile
+Turn your profile views from the last 90 days into new opportunities.
+
+*More InMail messages
+Expand your network and easily connect with hiring managers.
+
+*LinkedIn Learning
+Access 16,000+ expert-led courses to sharpen your skills.
+
+*Interview preparation
+Get prepared to put your best face forward in your next interview.
+	
+    Sincerely,
+        Liza and the LinkedIn Premium Team`,
+        isRead: true, sentAt: 1611780545000, id: '1611780545000aa'
+    },
+    {
         folder: 'sent', subject: 're: How are you?',
         from: 'me', to: 'Gali',
         body: `Hey, I'm doing good actually! I saw your recent update and really loved it.
@@ -149,7 +173,7 @@ We’re offering half off all of our Nanodegree programs and a 7‍-da‍y free 
 Our programs are created in collaboration with top companies like AWS, BMW, Google, IBM and Microsoft,meaning that you’ll be learning the latest in-demand skills designed for workplace application.
 Enroll no‍w to take advantage of our new student deals! Use coupon code SAVE50 at checkout.
 `,
-        isRead: true, sentAt: 1611515895000,
+        isRead: true, sentAt: 1609277825000,
         id: '15511339308001234567'
     },
     {
@@ -189,7 +213,7 @@ Review the apps that have access to your account and revoke access to any unfami
         body: `Hey Gali, I pushed a new commit to git, can you check it out?
 let me know what you think about the CSS changes I made on the header and in the email details.
 Thank you!`,
-        isRead: true, sentAt: 1551133930800,
+        isRead: true, sentAt: 1614372914000,
         id: '15511339308031234567'
     }
 ]
