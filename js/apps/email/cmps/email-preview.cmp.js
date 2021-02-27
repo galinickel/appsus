@@ -44,7 +44,7 @@ export default {
             }
             /// if it's the same year- show date without year
             else if (sentDate.substr(11, 4) === currDate.substr(11, 4)) {
-                return sentDate.substr(3, 6);
+                return sentDate.substr(3, 7);
             }
             /// if it's from another year- show full date 
             else return new Date(this.email.sentAt).toLocaleDateString()

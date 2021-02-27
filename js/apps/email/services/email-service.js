@@ -85,12 +85,49 @@ You can read more about us in our 'About' page.`,
         id: '15511339305941234174'
     },
     {
+        folder: 'inbox', subject: 'Discover next-generation slideshows‏', from: 'Canva', to: 'me',
+        body: `Fromthe boardroom to the classroom to your living room, our Slideshow Videos are the perfect way 
+to introduce your team, say happy birthday to a classmate, or show family and friends your favorite holiday snaps. Simply pick a template, add animation, text effects, video clips, music, and more to have your audience glued to the screen from start to finish.`,
+        isRead: false, sentAt: 1614362113000, id: '1614273355adfd'
+    },
+
+    {
         folder: 'inbox', subject: 'How are you?',
         from: 'Gali', to: 'me',
         body: `Hey Almog! i'm just checking up how the sprint work is going for you
 let me know if you want to have a zoom meeting and catch up :)`,
         isRead: true, sentAt: 1614193632740,
         id: '15511339305941234567'
+    },
+    {
+        folder: 'inbox', subject: `[New collection] International Women’s Day 2021‏
+    `, from: 'Depositpics', to: 'me', body: `International Women’s Day is coming up soon! Explore our 2021 collection celebrating a special day around the world with inspiring visuals and some of the newest files from the Depositphotos library.
+        Kind regards, The Depositphotos Team.
+    `, isRead: true, sentAt: 1612790413000, id: '1614172813000er'
+    },
+    {
+        folder: 'inbox', subject: 'Almog, thanks for being a valued member', from: 'LinkedIn', to: 'me',
+        body: `
+        Hi Almog,
+Thanks for being part of the LinkedIn community - we're so glad you're here. As a thank you, we'd like to offer you one free month of LinkedIn Premium.
+
+Here's how Premium can help:
+
+*Who's viewed your profile
+Turn your profile views from the last 90 days into new opportunities.
+
+*More InMail messages
+Expand your network and easily connect with hiring managers.
+
+*LinkedIn Learning
+Access 16,000+ expert-led courses to sharpen your skills.
+
+*Interview preparation
+Get prepared to put your best face forward in your next interview.
+	
+    Sincerely,
+        Liza and the LinkedIn Premium Team`,
+        isRead: true, sentAt: 1611780545000, id: '1611780545000aa'
     },
     {
         folder: 'sent', subject: 're: How are you?',
@@ -136,7 +173,7 @@ We’re offering half off all of our Nanodegree programs and a 7‍-da‍y free 
 Our programs are created in collaboration with top companies like AWS, BMW, Google, IBM and Microsoft,meaning that you’ll be learning the latest in-demand skills designed for workplace application.
 Enroll no‍w to take advantage of our new student deals! Use coupon code SAVE50 at checkout.
 `,
-        isRead: true, sentAt: 1611515895000,
+        isRead: true, sentAt: 1609277825000,
         id: '15511339308001234567'
     },
     {
@@ -176,7 +213,7 @@ Review the apps that have access to your account and revoke access to any unfami
         body: `Hey Gali, I pushed a new commit to git, can you check it out?
 let me know what you think about the CSS changes I made on the header and in the email details.
 Thank you!`,
-        isRead: true, sentAt: 1551133930800,
+        isRead: true, sentAt: 1614372914000,
         id: '15511339308031234567'
     }
 ]
