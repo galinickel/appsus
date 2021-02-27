@@ -1,8 +1,7 @@
 export default {
     name: 'email-filter',
     template: `<section class="email-filter-sort"> 
-        <!-- TODO: change class to email-filter -->
-            <input @input="setFilter" type="text" placeholder="search..." v-model="filterBy.byContent">
+            <input @input="setFilter" type="text" placeholder="search..." v-model="filterBy.byContent" >
             <select @change="setFilter" v-model="filterBy.byStatus">
                 <option value="">All</option>
                 <option value="read">Read</option>
