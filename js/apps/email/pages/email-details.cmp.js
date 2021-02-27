@@ -12,6 +12,7 @@ export default {
         <br>
         <router-link :to="'./'"><i class="fas fa-arrow-left fa-lg"></i></router-link>
         <button @click="setReplayEmail(email)"><i class="fas fa-reply fa-2x"></i></button>
+        <button @click="saveAsNote(email.body)"><i class="far fa-sticky-note fa-2x"></i></button>
     </div>`,
     data() {
         return {
@@ -28,6 +29,9 @@ export default {
         },
         setReplayEmail(email) {
             this.$emit('replayEmailSet', email);
+        },
+        saveAsNote(emailTxt) {
+            this.$router.push(`/keep?email=${emailTxt}`);
         }
     },
     created() {

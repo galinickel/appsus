@@ -18,7 +18,7 @@ export default {
     </div>
     <transition name="height">
     <div v-if="isComposing">
-        <email-compose @emailSaved="loadEmails" @composeClosed="closeCompose" :replayEmail="replayEmail"/>
+        <email-compose @emailSaved="loadEmails" @composeClosed="closeCompose" :replayEmail="replayEmail" :note="note"/>
     </div>
 </transition> 
         </section> `,
@@ -28,7 +28,8 @@ export default {
             filterBy: null,
             sortBy: null,
             isComposing: false,
-            replayEmail: null
+            replayEmail: null,
+            note: null
         }
     },
     methods: {
@@ -36,7 +37,6 @@ export default {
             emailService.query()
                 .then(emails => {
                     this.emails = emails
-                    this.isComposing = false
                 });
         },
         setFilter(filter) {
@@ -96,7 +96,11 @@ export default {
         eventBus.$on('emailEreased', this.deleteEmail);
         eventBus.$on('readToggled', this.toggleRead);
 
-        console.log(this.$route);
+        if (this.$route.query.note) {
+            this.note = this.$route.query.note;
+            this.isComposing = true;
+            this.$router.push('/email/inbox')
+        }
 
     },
     components: {

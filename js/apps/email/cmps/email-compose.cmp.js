@@ -1,7 +1,7 @@
 import { emailService } from '../services/email-service.js'
 
 export default {
-    props: ['replayEmail'],
+    props: ['replayEmail', 'note'],
     name: 'email-compose',
     template: `<div class="email-compose">
         <form @submit.prevent="emailSubmitted">
@@ -26,6 +26,9 @@ export default {
                 this.subject = `re: ${this.replayEmail.subject}`
                 this.to = `${this.replayEmail.from}`
                 // this.body = `----------------------------------${this.replayEmail.body}`
+            }
+            else if (this.note) {
+                this.body = this.note
             }
         },
         emailSubmitted() {

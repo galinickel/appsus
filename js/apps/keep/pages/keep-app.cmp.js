@@ -52,7 +52,7 @@ export default {
             })
         },
         clearEditStatus() {
-            keepService.clearNoteEdit().then( () => {
+            keepService.clearNoteEdit().then(() => {
                 this.loadNotes()
             })
         },
@@ -68,6 +68,7 @@ export default {
     computed: {},
     created() {
         this.loadNotes()
+
         this.clearEditStatus()
         eventBus.$on('toggleNotePinned', this.pinNote);
         eventBus.$on('noteErased', this.deleteNote);
