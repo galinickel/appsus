@@ -148,16 +148,22 @@
 
 /*PHONE*/
 @media (max-width: 500px) {
+
     .main-layout {
-        max-width: 450px;
+        max-width: 425px;
     }
 
     /* KEEP */
-
+.keep-list { 
+    margin: 2%;
+}
     .keep-preview-container {
         column-count: 1;
     }
-
+    .pinned-preview-container{
+        column-count: 1;
+        padding: 0;
+    }
     /* MAIL */
 
     .email-date {
