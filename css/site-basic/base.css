@@ -32,6 +32,11 @@ a {
             61);
 }
 
+button:hover,
+a:hover {
+    color: #a17373;
+}
+
 ul {
     list-style: none;
 }
@@ -40,4 +45,13 @@ ul {
     background-color: #d1c1b7;
     border-radius: 10px;
     width: 300px;
+}
+
+/* scroll bar */
+::-webkit-scrollbar-thumb {
+    background: #cebcbc;
+}
+
+::-webkit-scrollbar {
+    background-color: #e4dcdc;
 }

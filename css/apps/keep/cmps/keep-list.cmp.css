@@ -9,7 +9,6 @@
 }
 
 .pinned-preview-container {
-    columns: 3;
     width: 65%;
     margin: 1% auto;
     column-gap: 1%;

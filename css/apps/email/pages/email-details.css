@@ -9,22 +9,34 @@
     width: 65%;
     position: relative;
     padding: 3% 5%;
+    max-height: 90vh;
+    overflow-y: scroll;
 }
-.email-details-info{
+
+.email-details-info {
     float: left;
     width: 80%;
     text-align: left;
 }
-.inbox-redirecter{
+
+p.email-details-body {
+    max-width: 90%;
+    text-align: left;
+    margin: auto;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-y: scroll;
+}
+
+.inbox-redirecter {
     padding: 2%;
     position: absolute;
     top: 5px;
     left: 5px;
 }
 
-.email-actions-container{
+.email-actions-container {
     justify-content: space-evenly;
     width: 30%;
     margin: 0 auto;
 }
-

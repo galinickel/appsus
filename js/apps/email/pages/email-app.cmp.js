@@ -18,7 +18,7 @@ export default {
     </div>
     <transition name="height">
     <div v-if="isComposing">
-        <email-compose @emailSaved="loadEmails" @composeClosed="closeCompose" :replayEmail="replayEmail" :note="note"/>
+        <email-compose @emailSaved="saveEmail" @composeClosed="closeCompose" :replayEmail="replayEmail" :note="note"/>
     </div>
 </transition> 
         </section> `,
@@ -53,11 +53,29 @@ export default {
             this.isComposing = false;
             this.replayEmail = null;
         },
+        saveEmail() {
+            this.isComposing = false;
+            this.loadEmails();
+        },
         deleteEmail(id) {
-            emailService.remove(id)
-                .then(() => {
-                    this.loadEmails();
-                })
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this email",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal({ text: 'Your email has been deleted', buttons: false, timer: 1200 });
+                        emailService.remove(id)
+                            .then(() => {
+                                if (this.$route.params.emailId) this.$router.push(`./`);
+                                this.loadEmails();
+                            })
+                    }
+                });
+
         },
         markAsRead(email) {
             email.isRead = true;

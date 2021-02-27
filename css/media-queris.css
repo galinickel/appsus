@@ -50,10 +50,6 @@
         max-width: unset;
     }
 
-    .email-body {
-        display: none;
-    }
-
     .email-edit-icon {
         font-size: 0.7rem;
     }
@@ -85,6 +81,11 @@
     .email-details-container {
         max-width: 750px;
     }
+
+    .email-body {
+        display: none;
+    }
+
 }
 
 /* SMALL */

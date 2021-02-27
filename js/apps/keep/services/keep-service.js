@@ -39,7 +39,7 @@ const notesData = [{
         id: "dEW4jMa",
         info: `"When in doubt: it's not a bug, it's a feature!`,
         isEditing: false,
-        isPinned: true,
+        isPinned: false,
         noteColor: "#f9cdd0",
         type: "txt",
     },
@@ -109,7 +109,7 @@ const notesData = [{
         id: "locOq33",
         info: "https://i.pinimg.com/originals/a3/e5/bf/a3e5bfa12e907db4d0a3004023eaad42.jpg",
         isEditing: false,
-        isPinned: false,
+        isPinned: true,
         noteColor: "#97b4a5",
         type: "img"
     },

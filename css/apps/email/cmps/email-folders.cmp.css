@@ -1,0 +1,16 @@
+.email-folders {
+    padding: 10px;
+    min-width: 130px;
+    text-align: left;
+}
+
+.folder {
+    padding: 5px 10px;
+    margin-bottom: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.active-folder {
+    background-color: #e4dcdc;
+}
