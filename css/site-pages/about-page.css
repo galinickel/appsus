@@ -25,10 +25,17 @@
 
 .team-member img {
     width: 250px;
+    border-radius: 50%;
 }
 
 .team-member .fab { 
     font-size: 2rem;
     color: #ba9999;
 
+}
+
+.team-member .secondary-text { 
+font-size: 1rem;
+color: #ba9999;
+margin-top: 1%;
 }

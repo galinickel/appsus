@@ -20,11 +20,7 @@
     color: rosybrown;
 }
 
-.keep-add li:after,
-.keep-add i::after {
-    color: rgb(146, 110, 110);
 
-}
 
 .keep-add input {
     margin-left: 5%;
