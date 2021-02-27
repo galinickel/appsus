@@ -26,3 +26,9 @@
 .team-member img {
     width: 250px;
 }
+
+.team-member .fab { 
+    font-size: 2rem;
+    color: #ba9999;
+
+}
