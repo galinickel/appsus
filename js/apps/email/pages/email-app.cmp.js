@@ -96,6 +96,8 @@ export default {
         eventBus.$on('emailEreased', this.deleteEmail);
         eventBus.$on('readToggled', this.toggleRead);
 
+        console.log(this.$route);
+
     },
     components: {
         emailCompose,
