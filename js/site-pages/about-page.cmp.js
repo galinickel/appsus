@@ -11,7 +11,7 @@ export default {
             <h1 class="">Get to Know Our Team</h1>
             <div class="team-info-container flex">
                 <div class="team-member flex">
-                    <img src="../../imgs/gali.jpg" >
+                    <img src="https://github.com/galinickel/appsus/blob/main/imgs/gali.jpg" >
                     <h2 class="team-title">Gali Nickel <a href="https://github.com/galinickel" class=""><i class="fab fa-github"></i></a>
                     </h2>
                     <p>Aspiring web developer, currently studying fullstack development at Coding Academy. Based in Ramat Yishai.</p>
