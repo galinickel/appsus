@@ -18,11 +18,11 @@ export default {
                     <p class="secondary-text">I love creating and trying my hand at different crafts, cooking new things and playing video games!</p>
                 </div>
                 <div class="team-member flex">
-                    <img src="https://p7.hiclipart.com/preview/722/101/213/computer-icons-user-profile-circle-abstract.jpg" >
+                    <img src="imgs/almog.png" >
                     <h2 class="team-title">Almog Lemberg <a href="https://github.com/Almoglem" class=""><i class="fab fa-github"></i></a>
                     </h2>
-                    <p>Aspiring web developer, currently studying fullstack development at Coding Academy. Based in Nesher.</p>
-                    <p class="secondary-text">More about me</p>
+                    <p>A web developer in training, currently studying fullstack development at the Coding Academy bootcamp. Based in Nesher.</p>
+                    <p class="secondary-text">I'm a fast learner who enjoys creating functionating and aesthetic web applications. Aside coding, I also love handcrafts such as knitting and embroidering!  </p>
                 </div>
             </div>
         </div>
