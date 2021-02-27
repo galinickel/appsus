@@ -1,18 +1,20 @@
-import { emailService } from '../services/email-service.js';
+import {
+    emailService
+} from '../services/email-service.js';
 
 export default {
-    template: `<div v-if="email" class="email-details-container email-table-helper ">
-        from: {{email.from}}
-        <br>
-        to: {{email.to}}
-        <br>
-        {{email.subject}}
-        <br>
-        {{email.body}}
-        <br>
-        <router-link :to="'./'"><i class="fas fa-arrow-left fa-lg"></i></router-link>
-        <button @click="setReplayEmail(email)"><i class="fas fa-reply fa-2x"></i></button>
-        <button @click="saveAsNote(email.body)"><i class="far fa-sticky-note fa-2x"></i></button>
+    template: `<div v-if="email" class="email-details-container email-table-helper flex">
+        <div class="email-details-info ">
+        <p>From: {{email.from}}</p>
+        <p>To: {{email.to}}</p>
+        <p>Subject: {{email.subject}}</p>
+    </div>
+    <p>{{email.body}}</p> 
+<div class="email-actions-container flex">
+    <button @click="setReplayEmail(email)"><i class="fas fa-reply fa-2x"></i></button>
+        <button @click="saveAsNote(email.body)"><i class="far fa-sticky-note fa-2x"></i></button>  
+    </div>
+        <router-link :to="'./'"><i class="inbox-redirecter fas fa-arrow-left fa-lg"></i></router-link>    
     </div>`,
     data() {
         return {
