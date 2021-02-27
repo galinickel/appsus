@@ -1,0 +1,12 @@
+.about-container { 
+    flex-direction: column;
+    margin: 2% auto;
+    text-align: center;
+}
+.team-member { 
+    flex-direction: column;
+    align-items: center;
+margin: 0 5%;}
+.team-member img { 
+    width: 250px;
+}

@@ -6,7 +6,7 @@ const notesData = [{
         id: "Do4mloy",
         info: "https://miro.medium.com/max/3000/1*JK9H1lnsMm9GAD_LAtaWAg.jpeg",
         isEditing: false,
-        isPinned: true,
+        isPinned: false,
         type: "img",
     },
     {
@@ -27,7 +27,7 @@ const notesData = [{
     {
         type: 'list',
         id: "jiDejLu",
-        isPinned: true,
+        isPinned: false,
         isEditing: false,
         info: ['make test data', 'make a homepage', 'make an about page', 'finish note & email integration', 'polish up CSS', 'implement note editing']
     },
@@ -66,7 +66,7 @@ const notesData = [{
         id: "mHcNws8",
         info: "https://www.youtube.com/watch?v=DtL_giO-EB8",
         isEditing: false,
-        isPinned: true,
+        isPinned: false,
         noteColor: "#c7dce6",
         type: "video"
     },
@@ -74,13 +74,13 @@ const notesData = [{
         id: "GfH23Z0",
         info: "https://media-cdn.tripadvisor.com/media/photo-s/15/dd/9a/56/kitchen-herb-garden.jpg",
         isEditing: false,
-        isPinned: true,
+        isPinned: false,
         type: "img"
     },
     {
         id: "vuIya29",
         info: ["onion soup", " tomato soup", " carrot soup", " yam soup", " lentil soup"],
-        isEditing: true,
+        isEditing: false,
         isPinned: false,
         type: "list"
     },
@@ -96,7 +96,7 @@ const notesData = [{
         id: "ncHlmAj",
         info: "Vue can be a lot of fun!",
         isEditing: false,
-        isPinned: true,
+        isPinned: false,
         type: "txt"
     }
 
