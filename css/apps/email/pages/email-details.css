@@ -4,4 +4,27 @@
     text-align: center;
     padding-top: 20px;
     background-color: #e4dcdc;
+    flex-direction: column;
+    min-height: 70vh;
+    width: 65%;
+    position: relative;
+    padding: 3% 5%;
 }
+.email-details-info{
+    float: left;
+    width: 80%;
+    text-align: left;
+}
+.inbox-redirecter{
+    padding: 2%;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.email-actions-container{
+    justify-content: space-evenly;
+    width: 30%;
+    margin: 0 auto;
+}
+
