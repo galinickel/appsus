@@ -38,6 +38,11 @@ export default {
         if (this.$route.query.email) {
             this.saveNote('txt', '✉️' + this.$route.query.email);
             this.$router.push('/keep')
+            swal({
+                text: "Your email has been saved as note",
+                buttons: false,
+                timer: 1200
+            });
         }
     },
     components: {

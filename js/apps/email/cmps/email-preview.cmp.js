@@ -30,7 +30,7 @@ export default {
             })
                 .then((willDelete) => {
                     if (willDelete) {
-                        swal({ text: 'Your email has been deleted', buttons: false, icon: 'success', timer: 1500 });
+                        swal({ text: 'Your email has been deleted', buttons: false, timer: 1500 });
                         eventBus.$emit('emailEreased', id)
                     }
                 });

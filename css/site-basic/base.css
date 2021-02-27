@@ -12,8 +12,8 @@ body {
     font-family: 'Ubuntu';
     background-color: #efebea;
     color: rgb(51,
-49,
-49);
+            49,
+            49);
 }
 
 button {
@@ -34,4 +34,10 @@ a {
 
 ul {
     list-style: none;
+}
+
+.swal-modal {
+    background-color: #d1c1b7;
+    border-radius: 10px;
+    width: 300px;
 }

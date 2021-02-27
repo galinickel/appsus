@@ -2,7 +2,19 @@ import {
     storageService
 } from '../../../site-services/async-storage-service.js'
 const KEEP_KEY = 'keepNotes'
-const notesData = [{
+const notesData = [
+
+    {
+        id: "6Fqc7N9",
+        info: "✉️ Welcome to our app, hope you will enjoy it!",
+        isEditing: false,
+        isPinned: true,
+        noteColor: "#ecddd0",
+        type: "txt"
+    },
+
+
+    {
         id: "Do4mloy",
         info: "https://miro.medium.com/max/3000/1*JK9H1lnsMm9GAD_LAtaWAg.jpeg",
         isEditing: false,

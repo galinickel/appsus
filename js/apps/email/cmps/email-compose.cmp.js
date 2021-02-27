@@ -38,7 +38,7 @@ export default {
             };
             emailService.save(newEmail)
                 .then(() => {
-                    swal({ text: 'Email Sent', buttons: false, icon: 'success', timer: 1200 })
+                    swal({ text: 'Email Sent', buttons: false, timer: 1200 })
                     this.$emit('emailSaved');
                 })
         },

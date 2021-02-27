@@ -33,19 +33,12 @@ export default {
     methods: {
 
         noteErased(noteId) {
+            eventBus.$emit('noteErased', noteId);
             swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this note",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal({ text: 'Your note has been deleted', buttons: false, icon: 'success', timer: 1500 });
-                        eventBus.$emit('noteErased', noteId)
-                    }
-                })
+                text: "Your note has been deleted",
+                buttons: false,
+                timer: 1200
+            });
         },
         colorChanged(userColor) {
             this.noteColor = userColor
@@ -59,8 +52,8 @@ export default {
             this.isEditing = !this.isEditing
             eventBus.$emit('toggleNoteEdit', this.note.id)
         },
-        checkIfEditStopped(){
-            if(!this.isEditing) this.editBar = false
+        checkIfEditStopped() {
+            if (!this.isEditing) this.editBar = false
             else this.editBar = true
         }
     },
