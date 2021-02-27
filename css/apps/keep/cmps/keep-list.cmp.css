@@ -1,8 +1,8 @@
 .keep-preview-container {
     column-count: 3;
-    column-gap: 1%;
+    column-gap: 5%;
     list-style-type: none;
-    width: 65%;
+    width: 75%;
     margin: 3% auto;
     transition: .2s all;
     padding-bottom: 5%;
