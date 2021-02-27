@@ -61,20 +61,21 @@
     }
 
     /* KEEP */
-
     .keep-preview-container {
-        width: unset;
+        /* column-count: 2; */
+        width: 100%;
+        min-width: 200px;
     }
 
-    .keep-preview-container{
-        column-count: 2;
+    .pinned-preview-container {
+        /* column-count: 2; */
         width: 100%;
         min-width: 200px;
     }
-    .pinned-preview-container {
-        column-count: 2;
-        width: 100%;
-        min-width: 200px;
+
+    .keep-preview {
+        min-height: unset;
+        font-size: 1rem;
     }
 }
 
@@ -117,6 +118,11 @@
     }
 
     /*HOME PAGE*/
+
+    .home-page h1 {
+        font-size: 2rem;
+    }
+
     .team-info-container {
         flex-direction: column;
     }
@@ -167,7 +173,8 @@
 }
 
 
-@media (max-width: 675px){
+@media (max-width: 675px) {
+
     .keep-preview-container,
     .pinned-preview-container {
         column-count: 1;
@@ -175,10 +182,13 @@
         min-width: 200px;
     }
 }
+
 /*PHONE*/
 @media (max-width: 500px) {
 
-
+    .home-page h1 {
+        font-size: 1.5rem;
+    }
 
     /* KEEP */
     .keep-list {
@@ -189,12 +199,14 @@
     .keep-add ul {
         width: 80%;
     }
+
     .keep-preview-container,
     .pinned-preview-container {
         column-count: 1;
         padding: 0;
         min-width: 200px;
     }
+
     /* MAIL */
 
     .email-date {
