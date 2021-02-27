@@ -39,7 +39,10 @@
     .keep-preview-container,
     .pinned-preview-container {
         padding: 0;
+    }
 
+    .keep-preview {
+        width: 400px;
     }
 }
 
@@ -62,18 +65,17 @@
 
     /* KEEP */
     .keep-preview-container {
-        /* column-count: 2; */
-        width: 100%;
+        width: 90%;
         min-width: 200px;
     }
 
     .pinned-preview-container {
-        /* column-count: 2; */
-        width: 100%;
+        width: 90%;
         min-width: 200px;
     }
 
     .keep-preview {
+        width: 250px;
         min-height: unset;
         font-size: 1rem;
     }
@@ -86,8 +88,6 @@
     }
 
     /* KEEP */
-
-
 
     /* MAIL */
     .email-details-container {
@@ -102,7 +102,7 @@
 
 /* SMALL */
 
-@media (max-width: 768px) {
+@media (max-width: 895px) {
 
     /*MAIN WEBSITE*/
     .main-layout {
