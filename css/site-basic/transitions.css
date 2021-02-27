@@ -21,3 +21,16 @@
 .fade-leave-active {
     opacity: 0
 }
+
+
+
+.height-enter-active,
+.height-leave-enter {
+    transform: translateY(65vh);
+    transition: all .1s  ease-in-out;
+}
+.height-enter,
+.height-leave-to {
+    transform: translateY(100vh);
+
+}

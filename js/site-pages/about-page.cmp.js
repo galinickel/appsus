@@ -12,12 +12,14 @@ export default {
             <div class="team-info-container flex">
                 <div class="team-member flex">
                     <img src="https://p7.hiclipart.com/preview/722/101/213/computer-icons-user-profile-circle-abstract.jpg" >
-                    <h2 class="team-title">Gali Nickel</h2>
+                    <h2 class="team-title">Gali Nickel <a href="https://github.com/galinickel" class=""><i class="fab fa-github"></i></a>
+</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolorem accusantium expedita quasi veritatis eum, odio ratione libero totam deserunt vero sint assumenda, enim tempora.</p>
                 </div>
                 <div class="team-member flex">
                     <img src="https://p7.hiclipart.com/preview/722/101/213/computer-icons-user-profile-circle-abstract.jpg" >
-                    <h2 class="team-title">Almog Lemberg</h2>
+                    <h2 class="team-title">Almog Lemberg <a href="https://github.com/Almoglem" class=""><i class="fab fa-github"></i></a>
+</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolorem accusantium expedita quasi veritatis eum, odio ratione libero totam deserunt vero sint assumenda, enim tempora.</p>
                 </div>
             </div>
