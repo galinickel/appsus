@@ -35,6 +35,12 @@
         font-size: 4rem;
     }
 
+    /*KEEP*/
+    .keep-preview-container,
+    .pinned-preview-container {
+        padding: 0;
+
+    }
 }
 
 /* MEDIUM */
@@ -59,6 +65,13 @@
     .keep-preview-container {
         width: unset;
     }
+
+    .keep-preview-container,
+    .pinned-preview-container {
+        column-count: 2;
+        width: 100%;
+        min-width: 200px;
+    }
 }
 
 /* MEDIUM -SMALL*/
@@ -69,13 +82,11 @@
 
     /* KEEP */
 
-    .keep-preview-container {
-        min-width: 650;
+    .keep-preview-container,
+    .pinned-preview-container {
+        min-width: 650px;
     }
 
-    .keep-preview-container {
-        column-count: 2;
-    }
 
     /* MAIL */
     .email-details-container {
@@ -94,7 +105,7 @@
 
     /*MAIN WEBSITE*/
     .main-layout {
-        max-width: 650px;
+        max-width: 600px;
     }
 
     .header-navbar {
@@ -145,27 +156,30 @@
         margin-bottom: 20px;
     }
 
+    /*KEEP*/
+
+    .keep-preview-container,
+    .pinned-preview-container {
+        column-count: 1;
+        padding: 0;
+        min-width: 200px;
+    }
 }
 
 /*PHONE*/
 @media (max-width: 500px) {
 
-    .main-layout {
-        max-width: 425px;
-    }
+
 
     /* KEEP */
-.keep-list { 
-    margin: 2%;
-}
-    .keep-preview-container {
-        column-count: 1;
+    .keep-list {
+        margin: 2%;
     }
-    .pinned-preview-container{
-        column-count: 1;
-        padding: 0;
-        margin-left: 10%;
+    .keep-add,
+    .keep-add ul{
+width: 80%;
     }
+
     /* MAIL */
 
     .email-date {

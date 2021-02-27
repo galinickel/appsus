@@ -2,7 +2,7 @@
     column-count: 3;
     column-gap: 5%;
     list-style-type: none;
-    width: 75%;
+    width: 85%;
     margin: 1% auto;
     transition: .2s all;
     padding-bottom: 5%;
@@ -10,7 +10,7 @@
 
 .pinned-preview-container {
     column-count: 3;
-    width: 65%;
+    width: 85%;
     margin: 1% auto;
     column-gap: 1%;
     min-height: 5vh;
