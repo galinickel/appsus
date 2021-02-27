@@ -66,7 +66,11 @@
         width: unset;
     }
 
-    .keep-preview-container,
+    .keep-preview-container{
+        column-count: 2;
+        width: 100%;
+        min-width: 200px;
+    }
     .pinned-preview-container {
         column-count: 2;
         width: 100%;
@@ -163,7 +167,7 @@
 }
 
 
-@media (max-width: 690px){
+@media (max-width: 675px){
     .keep-preview-container,
     .pinned-preview-container {
         column-count: 1;
