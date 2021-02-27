@@ -3,6 +3,7 @@ header {
 }
 
 .header-container {
+
     justify-content: space-between;
     align-items: center;
     height: 12vh;
@@ -10,9 +11,18 @@ header {
 }
 
 .header-navbar {
+    color: rgb(88, 69, 51);
     justify-content: space-evenly;
     width: 45%;
     list-style-type: none;
+    font-size: 1.1rem;
+}
+.header-navbar a:hover  {
+    color: #977e7e;
+}
+.header-navbar a:focus  {
+    color: #977e7e;
+    font-weight: 800;
 }
 
 .logo {

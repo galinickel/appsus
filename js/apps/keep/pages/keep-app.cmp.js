@@ -9,8 +9,7 @@ import {
 } from "../../../site-services/event-bus.js";
 
 export default {
-    template: `<div class="app-page keep-app">
-        <h1> KEEP  </h1>
+    template: `<div class="app-page keep-app ">
         <h3>Your notes. Brought together.</h3>
         <keep-add v-if="isAddNew" @noteSaved="renderNote"/>
         <keep-list v-if="notes.length" :notes="notes"/>

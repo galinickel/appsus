@@ -9,12 +9,12 @@ html {
 
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Ubuntu';
     background-color: #efebea;
 }
 
 button {
-    font-family: sans-serif;
+    font-family: 'Ubuntu';
     color: #3b3b3b;
     cursor: pointer;
     background-color: inherit;

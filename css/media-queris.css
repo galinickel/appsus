@@ -24,6 +24,9 @@
 /* MEDIUM */
 
 @media (max-width: 1170px) {
+    .main-layout {
+        max-width: 900px;
+    }
 
     /* MAIL */
 
@@ -45,10 +48,52 @@
         width: unset;
     }
 }
+/* MEDIUM -SMALL*/
+@media (max-width: 900px){
+    .main-layout {
+        max-width: 800px;
+    }
+    /* KEEP */
+
+    .keep-preview-container {
+        min-width: 650;
+    }
+
+    .keep-preview-container {
+        column-count: 2;
+    }
+}
 
 /* SMALL */
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+
+    /*MAIN WEBSITE*/
+    .main-layout {
+        max-width: 650px;
+    }
+
+    .header-navbar {
+        width: 80%;
+    }
+    .app-page { 
+        min-height: 75vh;
+    }
+    /*HOME PAGE*/
+    .team-info-container {
+        flex-direction: column;
+    }
+
+
+    /*ABOUT PAGE*/
+
+.home-container { 
+    flex-direction: column;
+}
+.horse { 
+    height: 250px;
+    width: 250px;
+}
 
     /* MAIL */
 
@@ -72,6 +117,15 @@
 
     .email-filter-sort {
         margin-bottom: 20px;
+    }
+
+
+}
+
+/*PHONE*/
+@media (max-width: 500px) {
+    .main-layout {
+        max-width: 450px;
     }
 
     /* KEEP */

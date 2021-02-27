@@ -33,7 +33,9 @@
 
 .app-title {
     font-size: 2rem;
+    font-family: 'Ubuntu';
     cursor: pointer;
+    color: #ba9999;
 }
 
 @keyframes swing {

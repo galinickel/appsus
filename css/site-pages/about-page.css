@@ -1,12 +1,28 @@
-.about-container { 
+.about-container {
     flex-direction: column;
     margin: 2% auto;
     text-align: center;
+    font-size: 1.2rem;
+    color: rgb(88, 69, 51);
+
 }
-.team-member { 
+.about-container h1{
+    color: #ba9999;
+}
+.about-text-container{
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.about-text-container a {
+    color: #977e7e;
+
+}
+.team-member {
     flex-direction: column;
     align-items: center;
-margin: 0 5%;}
-.team-member img { 
+    margin: 0 5%;
+}
+
+.team-member img {
     width: 250px;
 }

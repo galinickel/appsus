@@ -2,7 +2,7 @@ import keepPreview from '../cmps/keep-preview.cmp.js'
 
 export default {
     props: ['notes'],
-    template: `<div class="keep-list">
+    template: `<div class="keep-list ">
         <ul class="pinned-preview-container short-length">
             <keep-preview :note="note" v-for="note in getPinned"  :key="note.id"/>
         </ul>     

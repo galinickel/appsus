@@ -2,7 +2,7 @@ export default {
     props: ['note'],
     template: `<span>
         <div>
-    <iframe  width=”560″ height=”315″ frameborder="5" :src="vidUrl"></iframe>
+    <iframe   height=”315″ frameborder="5" :src="vidUrl"></iframe>
 </div>
 </span>`,
     data() {
