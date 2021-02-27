@@ -16,9 +16,11 @@ export default {
         </aside>
         <router-view @replayEmailSet="setReplyEmail" @emailRead="markAsRead" :emails="emailsToDisplay"/>
     </div>
+    <transition name="height">
     <div v-if="isComposing">
         <email-compose @emailSaved="loadEmails" @composeClosed="closeCompose" :replayEmail="replayEmail"/>
     </div>
+</transition> 
         </section> `,
     data() {
         return {
